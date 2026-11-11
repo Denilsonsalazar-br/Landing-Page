@@ -328,5 +328,171 @@ if (credentialsViewport) {
             behavior: "smooth"
         });
     });
+}
 
+
+/* CARROSSEL DE CERTIFICAÇÕES FADE + AUTOPLAY */
+
+const certificateCarousel = document.getElementById(
+    "certificateCarousel"
+);
+
+if (certificateCarousel) {
+
+    const track = document.getElementById("certificateTrack");
+    const slides = Array.from(
+        track.querySelectorAll(".certificate-slide")
+    );
+    const dots = Array.from(
+        certificateCarousel.querySelectorAll(".certificate-dot")
+    );
+
+    const prev = document.getElementById("certificatePrev");
+
+    const next = document.getElementById("certificateNext");
+
+    let currentSlide = 0;
+    let autoplayTimer = null;
+
+    let isHovered = false;
+    let isFocused = false;
+
+    const totalSlides = slides.length;
+    const autoplayDelay = 5000;
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+    /* ATUALIZAR SLIDE */
+
+    function updateCertificate(index) {
+
+        if (!totalSlides) return;
+
+        currentSlide =
+            (index + totalSlides) % totalSlides;
+        slides.forEach((slide, i) => {
+            const active = i === currentSlide;
+            slide.classList.toggle("active", active);
+            slide.setAttribute(
+                "aria-hidden",
+                String(!active)
+            );
+            slide.inert = !active;
+        });
+
+
+        // Atualizar indicadores
+
+        dots.forEach((dot, i) => {
+            const active = i === currentSlide;
+            dot.classList.toggle("active", active);
+            if (active) {
+                dot.setAttribute("aria-current", "true");
+            } else {
+                dot.removeAttribute("aria-current");
+            }
+        });
+
+    }
+
+
+    /* PARAR AUTOPLAY */
+
+    function stopCertificateAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+    }
+
+
+    /* INICIAR AUTOPLAY */
+
+    function startCertificateAutoplay() {
+        stopCertificateAutoplay();
+        if (reducedMotion) return;
+        if (
+            isHovered ||
+            isFocused ||
+            document.hidden
+        ) return;
+        autoplayTimer = setInterval(() => {
+            updateCertificate(currentSlide + 1);
+        }, autoplayDelay);
+
+    }
+
+
+    /* BOTÃO ANTERIOR */
+
+    prev.addEventListener("click", () => {
+        updateCertificate(currentSlide - 1);
+        startCertificateAutoplay();
+    });
+
+
+    /* BOTÃO PRÓXIMO */
+
+    next.addEventListener("click", () => {
+        updateCertificate(currentSlide + 1);
+        startCertificateAutoplay();
+    });
+
+
+    /* INDICADORES */
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            updateCertificate(index);
+            startCertificateAutoplay();
+        });
+    });
+
+
+    /* PAUSAR AO PASSAR O MOUSE */
+
+    certificateCarousel.addEventListener("mouseenter", () => {
+        isHovered = true;
+        stopCertificateAutoplay();
+    });
+
+
+    certificateCarousel.addEventListener("mouseleave", () => {
+        isHovered = false;
+        startCertificateAutoplay();
+    });
+
+
+    /* PAUSAR DURANTE INTERAÇÃO */
+
+    certificateCarousel.addEventListener("focusin", () => {
+        isFocused = true;
+        stopCertificateAutoplay();
+    });
+
+
+    certificateCarousel.addEventListener("focusout", event => {
+        if (!certificateCarousel.contains(event.relatedTarget)) {
+            isFocused = false;
+            startCertificateAutoplay();
+        }
+    });
+
+
+    /* ABA EM SEGUNDO PLANO */
+
+    document.addEventListener("visibilitychange", () => {
+
+        if (document.hidden) {
+            stopCertificateAutoplay();
+        } else {
+            startCertificateAutoplay();
+        }
+    });
+
+
+    /* INICIALIZAÇÃO */
+
+    updateCertificate(0);
+    startCertificateAutoplay();
 }
