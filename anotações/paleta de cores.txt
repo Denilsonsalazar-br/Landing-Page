@@ -1,0 +1,8 @@
+> Cor principal
+Azul-marinho — #011640
+
+> Cor secundária
+Azul elétrico — #0554F2
+
+> Cor de destaque
+Ciano — #4AD6FD
