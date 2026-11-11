@@ -1,4 +1,3 @@
-
     :root {
         --primary: #011640;
         --secondary: #0554F2;
@@ -899,9 +898,7 @@
 }
 
 
-/* ========================================
-   CARROSSEL DE CERTIFICAÇÕES
-======================================== */
+/* CARROSSEL DE CERTIFICAÇÕES */
 
 .credentials-section {
     margin-top: 55px;
@@ -1414,7 +1411,7 @@
 }
 
 
-/* RESPONSIVIDADE - SMARTPHONES */
+/* RESPONSIVIDADE - MOBILE */
 
 @media (max-width: 480px) {
 
@@ -1560,6 +1557,103 @@
         scroll-behavior: auto;
     }
 
+}
+
+/* PROJETOS */
+
+.projects-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 120px 32px 110px;
+
+    background:
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(5, 84, 242, 0.10),
+            transparent 38%
+        ),
+        #011640;
+
+    overflow: hidden;
+    scroll-margin-top: 88px;
+}
+
+
+/* CONTAINER PRINCIPAL */
+
+.projects-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+/* CABEÇALHO */
+
+.projects-header {
+    max-width: 680px;
+    margin-bottom: 50px;
+}
+
+
+/* TÍTULO */
+
+.projects-header h2 {
+    color: #FFFFFF;
+    font-size: clamp(36px, 4.5vw, 52px);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+
+/* DESTAQUE DO TÍTULO */
+
+.projects-header h2 span {
+    color: #4AD6FD;
+}
+
+
+/* DESCRIÇÃO */
+
+.projects-header p {
+    max-width: 600px;
+    color: #A8B8D5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* RESPONSIVIDADE DA SEÇÃO */
+
+@media (max-width: 900px) {
+
+    .projects-section {
+        padding: 100px 24px 90px;
+    }
+    .projects-header {
+        margin-bottom: 35px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .projects-section {
+        padding: 85px 18px 75px;
+    }
+    .projects-header {
+        margin-bottom: 30px;
+    }
+    .projects-header h2 {
+        font-size: 36px;
+    }
+    .projects-header p {
+        font-size: 14px;
+    }
 }
 
 /* CARROSSEL DE PROJETOS TRANSIÇÃO */

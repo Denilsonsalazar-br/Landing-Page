@@ -285,3 +285,48 @@ if (projectsCarousel) {
 
 }
 
+/* CARROSSEL DE CERTIFICAÇÕES */
+
+const credentialsViewport = document.querySelector(
+    ".credentials-viewport"
+);
+
+if (credentialsViewport) {
+
+    const badgePrev = document.getElementById("badgePrev");
+    const badgeNext = document.getElementById("badgeNext");
+
+
+    // Calcula a distância de navegação
+
+    function getBadgeScrollDistance() {
+        const card = credentialsViewport.querySelector(
+            ".credential-card"
+        );
+        if (!card) return credentialsViewport.clientWidth;
+        const cardWidth = card.offsetWidth;
+        const gap = 14;
+        return (cardWidth + gap) * 2;
+    }
+
+
+    // Navegar para a esquerda
+
+    badgePrev.addEventListener("click", () => {
+        credentialsViewport.scrollBy({
+            left: -getBadgeScrollDistance(),
+            behavior: "smooth"
+        });
+    });
+
+
+    // Navegar para a direita
+
+    badgeNext.addEventListener("click", () => {
+        credentialsViewport.scrollBy({
+            left: getBadgeScrollDistance(),
+            behavior: "smooth"
+        });
+    });
+
+}
