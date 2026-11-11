@@ -4,23 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denilson Salazar</title>
-    <link rel="alternate" href="css/style.css" type="application/atom+xml" title="Atom">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
     </head>
-<body>
-    <header>
+<body >
+    <header class="navbar" id="navbar">
+        <nav class="nav-container" aria-label="Navegação principal">
+
+        <!-- LOGO -->
+        <a href="#inicio" class="logo" aria-label="Denilson - Página inicial">
+            <img src="img/logo.png" alt="Logo Denilson">
+        </a>
+
+        <!-- LINKS -->
+        <ul class="nav-links" id="navLinks">
+            <li>
+            <a href="#inicio" class="active">Início</a>
+            </li>
+            <li>
+            <a href="#sobre">Quem é o Denilson?</a>
+            </li>
+            <li>
+            <a href="#projetos">Projetos</a>
+            </li>
+            <li>
+            <a href="#academico">Acadêmico</a>
+            </li>
+            <li>
+            <a href="#certificacao">Certificações</a>
+            </li>
+        </ul>
+
+        <!-- CONTATO -->
+        <a href="#contato" class="contact-btn">
+            Vamos conversar
+            <span>↗</span>
+        </a>
+
+        <!-- MENU MOBILE -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        </nav>
 
     </header>
+
     <main>
+        <!--<section>
+            <div class="project-visual project-preview">
+                <iframe
+                    src="https://refrigeracaosalazar.base44.app/"
+                    title="Projeto noCode - Refrigeração Salazar"
+                    loading="eager"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+            <div class="project-visual project-preview">
+                <iframe
+                    src="https://nortesulmoveis.base44.app/"
+                    title="Projeto NorteSul Móveis"
+                    loading="eager"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </section>-->
+        
+    <section class="projects-section" id="projetos">
+        <div class="projects-container">
+            <div class="projects-header">
+                <span class="section-label">PORTFÓLIO / PROJETOS</span>
+                <h2>
+                    Transformando ideias em
+                    <span>soluções digitais.</span>
+                </h2>
+                <p>
+                    Conheça alguns projetos que desenvolvi,
+                    conectando tecnologia, estratégia e negócios.
+                </p>
+            </div>
+            <!-- CARROSSEL -->
+            <div class="projects-carousel" id="projectsCarousel">
+                <!-- ÁREA VISÍVEL -->
+                <div class="projects-viewport">
+                    <div class="projects-track" id="projectsTrack">
+
+                        <!-- PROJETO 01 -->
+                        <article class="project-slide">
+                            <div class="project-content">
+                                <span class="project-category">
+                                    PROJETO 01 / WEBSITE INSTITUCIONAL
+                                </span>
+                                <h3>
+                                    Refrigeração
+                                    <span>Salazar.</span>
+                                </h3>
+                                <p>
+                                    Desenvolvimento de uma solução digital
+                                    para uma empresa especializada em
+                                    refrigeração, climatização e assistência
+                                    técnica de ar-condicionado.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Refrigeração</span>
+                                    <span>Climatização</span>
+                                    <span>Base44</span>
+                                </div>
+                                <a
+                                    href="https://refrigeracaosalazar.base44.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    Explorar projeto ↗
+                                </a>
+                            </div>
+
+                            <div class="project-visual project-preview">
+                                <iframe
+                                    src="https://refrigeracaosalazar.base44.app/"
+                                    title="Refrigeração Salazar"
+                                    loading="eager">
+                                </iframe>
+                            </div>
+                        </article>
+
+                        <!-- PROJETO 02 -->
+                        <article class="project-slide">
+                            <div class="project-content">
+                                <span class="project-category">
+                                    PROJETO 02 / WEBSITE INSTITUCIONAL
+                                </span>
+                                <h3>
+                                    NorteSul
+                                    <span>Móveis.</span>
+                                </h3>
+                                <p>
+                                    Desenvolvimento de uma presença digital
+                                    para uma marca especializada em móveis
+                                    rústicos de madeira maciça, valorizando
+                                    design, identidade e apresentação
+                                    dos produtos.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Design</span>
+                                    <span>Madeira maciça</span>
+                                    <span>Base44</span>
+                                </div>
+                                <a
+                                    href="https://nortesulmoveis.base44.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    Explorar projeto ↗
+                                </a>
+                            </div>
+                            <div class="project-visual project-preview">
+                                <iframe
+                                    src="https://nortesulmoveis.base44.app/"
+                                    title="NorteSul Móveis"
+                                    loading="eager">
+                                </iframe>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- CONTROLES -->
+                <div class="projects-controls">
+                    <div class="carousel-pagination">
+                        <button
+                            class="carousel-dot active"
+                            data-slide="0"
+                            aria-label="Projeto Refrigeração Salazar">
+                        </button>
+                        <button
+                            class="carousel-dot"
+                            data-slide="1"
+                            aria-label="Projeto NorteSul Móveis">
+                        </button>
+                    </div>
+                    <div class="carousel-navigation">
+                        <button
+                            id="projectPrev"
+                            class="carousel-arrow"
+                            aria-label="Projeto anterior">
+                            ←
+                        </button>
+                        <button
+                            id="projectNext"
+                            class="carousel-arrow"
+                            aria-label="Próximo projeto">
+                            →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     </main>
     <footer>
 
     </footer>
-    
-    <script src="js/script.js"></script>
 </body>
 </html>
