@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denilson Salazar</title>
+
+    <script>
+        try {
+            const theme = localStorage.getItem("denilson-theme");
+
+            if (theme === "light" || theme === "dark") {
+                document.documentElement.setAttribute("data-theme", theme);
+            }
+        } catch (error) {
+            // Mantém o tema escuro como padrão.
+        }
+    </script>
+
+<link rel="stylesheet" href="css/style.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -17,55 +31,141 @@
     <link rel="manifest" href="img/favicon/site.webmanifest">
     </head>
 <body >
+    
+    <!-- NAVBAR -->
+
     <header class="navbar" id="navbar">
+
         <nav class="nav-container" aria-label="Navegação principal">
 
-        <!-- LOGO -->
-        <a href="#inicio" class="logo" aria-label="Denilson - Página inicial">
-            <img src="img/logo.png" alt="Logo Denilson">
-        </a>
+            <!-- LOGO -->
 
-        <!-- LINKS -->
-        <ul class="nav-links" id="navLinks">
-            <li>
-            <a href="#inicio" class="active">Início</a>
-            </li>
-            <li>
-            <a href="#sobre">Quem é o Denilson?</a>
-            </li>
-            <li>
-            <a href="#projetos">Projetos</a>
-            </li>
-            <li>
-            <a href="#academico">Acadêmico</a>
-            </li>
-            <li>
-            <a href="#certificacao">Certificações</a>
-            </li>
-        </ul>
+            <a href="#inicio" class="logo" aria-label="Denilson - Página inicial">
+                <img src="img/logo.png" alt="Logo Denilson">
+            </a>
 
-        <!-- CONTATO -->
-        <a href="#contato" class="contact-btn">
-            Vamos conversar
-            <span>↗</span>
-        </a>
 
-        <!-- MENU MOBILE -->
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="navLinks"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <!-- LINKS -->
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#inicio" class="active">Início</a>
+                </li>
+
+                <li>
+                    <a href="#sobre">Quem é o Denilson?</a>
+                </li>
+
+                <li>
+                    <a href="#projetos">Projetos</a>
+                </li>
+
+                <li>
+                    <a href="#academico">Acadêmico</a>
+                </li>
+
+                <li>
+                    <a href="#certificacao">Certificações</a>
+                </li>
+
+            </ul>
+
+
+            <!-- ALTERNAR TEMA -->
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Ativar tema claro"
+                aria-pressed="false"
+                title="Alternar tema"
+            >
+
+                <!-- ÍCONE SOL -->
+
+                <svg
+                    class="theme-icon theme-icon-sun"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="12" r="4"/>
+
+                    <path d="M12 2v2"/>
+                    <path d="M12 20v2"/>
+                    <path d="m4.93 4.93 1.42 1.42"/>
+                    <path d="m17.65 17.65 1.42 1.42"/>
+                    <path d="M2 12h2"/>
+                    <path d="M20 12h2"/>
+                    <path d="m4.93 19.07 1.42-1.42"/>
+                    <path d="m17.65 6.35 1.42-1.42"/>
+
+                </svg>
+
+
+                <!-- ÍCONE LUA -->
+
+                <svg
+                    class="theme-icon theme-icon-moon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10z"/>
+
+                </svg>
+
+            </button>
+
+
+            <!-- CONTATO -->
+
+            <a
+                href="https://www.linkedin.com/in/denilsonsalazar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-btn"
+            >
+
+                Vamos conversar
+
+                <span>↗</span>
+
+            </a>
+
+
+            <!-- MENU MOBILE -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
 
         </nav>
 
     </header>
+
 
         <main>
 
@@ -73,7 +173,7 @@
 
         <section class="hero-section" id="inicio">
 
-            <div class="hero-container">
+            <div class="hero-container" >
 
                 <div class="hero-content">
 
@@ -285,6 +385,7 @@
                                 <span>SQL</span>
                                 <span>MySQL</span>
                                 <span>Git</span>
+                                <span>GitHub</span>
                                 <span>MVC</span>
                             </div>
                         </div>
@@ -556,8 +657,8 @@
         </section>
 
         <!-- PROJETOS -->
-        <section class="projects-section" id="projetos">
-            <div class="projects-container">
+        <section class="projects-section" >
+            <div class="projects-container" id="projetos">
                 <div class="projects-header">
                     <span class="section-label">PORTFÓLIO / PROJETOS</span>
                     <h2>
@@ -700,11 +801,11 @@
         </section>
 
         <!-- CERTIFICAÇÕES -->
-        <section class="certifications-section" id="certificacao">
+        <section class="certifications-section" >
 
             <!-- CARROSSEL DE CERTIFICAÇÕES -->
 
-            <div class="credentials-section">
+            <div class="credentials-section" id="certificacao">
 
                 <!-- CABEÇALHO -->
 
@@ -1289,8 +1390,186 @@
 
         </main>
 
-    <footer>
+    
+    <!-- FOOTER -->
 
+    <footer class="site-footer" id="contato">
+        <div class="footer-container">
+            
+            <!-- PARTE SUPERIOR -->
+
+
+            <div class="footer-main">
+
+                <!-- IDENTIDADE -->
+
+                <div class="footer-brand">
+                    <a href="#inicio" class="footer-logo">
+                        <img
+                            src="img/logo.png"
+                            alt="Logo Denilson Salazar"
+                        >
+
+                    </a>
+
+                    <h3>DENILSON SALAZAR</h3>
+
+                    <span class="footer-brand-subtitle">
+                        SOFTWARE ENGINEERING & TECHNOLOGY
+                    </span>
+
+                    <p>
+                        Transformando conhecimento em soluções digitais.
+                        Tecnologia, estratégia e evolução contínua.
+                    </p>
+                </div>
+
+
+                <!-- NAVEGAÇÃO -->
+
+                <div class="footer-column">
+                    <h4>NAVEGAÇÃO</h4>
+                    <ul>
+                        <li>
+                            <a href="#inicio">Início</a>
+                        </li>
+
+                        <li>
+                            <a href="#sobre">Quem é o Denilson</a>
+                        </li>
+
+                        <li>
+                            <a href="#projetos">Projetos</a>
+                        </li>
+
+                        <li>
+                            <a href="#academico">Acadêmico</a>
+                        </li>
+
+                        <li>
+                            <a href="#certificacao">Certificações</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- REDES PROFISSIONAIS -->
+
+                <div class="footer-column">
+                    <h4>CONECTE-SE</h4>
+                    <ul>
+
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/denilsonsalazar"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://github.com/Denilsonsalazar-br"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Credly
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONTATO -->
+
+                <div class="footer-contact">
+
+                    <span class="footer-contact-label">
+                        VAMOS CONVERSAR?
+                    </span>
+
+                    <h4>
+                        Vamos construir
+                        algo juntos?
+                    </h4>
+
+                    <p>
+                        Estou aberto a conexões, ideias e
+                        oportunidades na área de tecnologia.
+                    </p>
+
+                    <a
+                        href="https://www.linkedin.com/in/denilsonsalazar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-contact-button"
+                    >
+                        Entrar em contato
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- LINHA DIVISÓRIA -->
+
+            <div class="footer-divider"></div>
+
+
+            <!-- PARTE INFERIOR -->
+
+            <div class="footer-bottom">
+
+                <div class="footer-copyright">
+
+                    <span>
+                        © <span id="currentYear">2026</span>
+                        Denilson Salazar.
+                        Todos os direitos reservados.
+                    </span>
+
+                </div>
+
+
+                <div class="footer-bottom-center">
+
+                    <span>
+                        Desenvolvido com
+                        <strong>HTML</strong>,
+                        <strong>CSS</strong> e
+                        <strong>JavaScript</strong>.
+                    </span>
+
+                </div>
+
+
+                <a href="#inicio" class="back-to-top">
+
+                    VOLTAR AO TOPO
+
+                    <span>↑</span>
+
+                </a>
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>

@@ -496,3 +496,104 @@ if (certificateCarousel) {
     updateCertificate(0);
     startCertificateAutoplay();
 }
+
+
+/* FOOTER  */
+
+const currentYear = document.getElementById("currentYear");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+
+/* ALTERNÂNCIA DE TEMA */
+
+const themeToggle = document.getElementById("themeToggle");
+
+const htmlElement = document.documentElement;
+
+
+// Aplicar tema
+
+function applyTheme(theme) {
+
+    const isLight = theme === "light";
+
+    htmlElement.setAttribute(
+        "data-theme",
+        isLight ? "light" : "dark"
+    );
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Ativar tema escuro" : "Ativar tema claro"
+    );
+
+    themeToggle.setAttribute(
+        "aria-pressed",
+        String(isLight)
+    );
+
+    themeToggle.setAttribute(
+        "title",
+        isLight ? "Alternar para tema escuro" : "Alternar para tema claro"
+    );
+
+}
+
+
+// Recuperar preferência salva
+
+let savedTheme = "dark";
+
+try {
+
+    const storedTheme = localStorage.getItem("denilson-theme");
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+        savedTheme = storedTheme;
+    }
+
+} catch (error) {
+
+    console.warn("Não foi possível recuperar o tema salvo.", error);
+
+}
+
+
+// Inicializar tema
+
+if (themeToggle) {
+
+    applyTheme(savedTheme);
+
+
+    // Alternar tema ao clicar
+
+    themeToggle.addEventListener("click", () => {
+
+        const currentTheme =
+            htmlElement.getAttribute("data-theme");
+
+        const newTheme =
+            currentTheme === "dark" ? "light" : "dark";
+
+        applyTheme(newTheme);
+
+
+        // Salvar preferência
+
+        try {
+
+            localStorage.setItem("denilson-theme", newTheme);
+
+        } catch (error) {
+
+            console.warn("Não foi possível salvar o tema.", error);
+
+        }
+
+    });
+
+}
