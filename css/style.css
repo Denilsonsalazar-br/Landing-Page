@@ -3480,3 +3480,1124 @@ html[data-theme="light"] .footer-bottom-center span {
     }
 
 }
+
+
+/* FORMAÇÃO ACADÊMICA */
+
+.academic-section {
+    position: relative;
+    width: 100%;
+
+    padding: 115px 32px 110px;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(5, 84, 242, 0.12),
+            transparent 38%
+        ),
+        #011640;
+
+    overflow: hidden;
+
+    scroll-margin-top: 88px;
+}
+
+.academic-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* CABEÇALHO */
+
+.academic-header {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.academic-header h2 {
+    color: #FFFFFF;
+
+    font-size: clamp(36px, 4.5vw, 52px);
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 18px;
+}
+
+.academic-header h2 span {
+    color: #4AD6FD;
+}
+
+.academic-header p {
+    color: #A8B8D5;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* DESTAQUE DA GRADUAÇÃO */
+
+.degree-feature {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(74, 214, 253, 0.2);
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        140deg,
+        rgba(5, 84, 242, 0.12),
+        rgba(1, 22, 64, 0.95)
+    );
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+
+/* STATUS */
+
+.degree-status {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 13px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid rgba(74, 214, 253, 0.2);
+
+    border-radius: 30px;
+
+    background: rgba(74, 214, 253, 0.07);
+
+    color: #4AD6FD;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.degree-status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #4AD6FD;
+
+    box-shadow: 0 0 12px #4AD6FD;
+}
+
+
+/* CONTEÚDO */
+
+.degree-content {
+    min-width: 0;
+}
+
+.degree-overline {
+    display: block;
+
+    color: #7186A8;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.degree-content h3 {
+    color: #FFFFFF;
+
+    font-size: clamp(32px, 3.5vw, 45px);
+
+    line-height: 1.12;
+
+    margin-bottom: 17px;
+}
+
+.degree-content h3 span {
+    color: #4AD6FD;
+}
+
+.degree-content h4 {
+    color: #4AD6FD;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    margin-bottom: 22px;
+}
+
+.degree-content > p {
+    color: #A8B8D5;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    margin-bottom: 28px;
+}
+
+
+/* METADADOS DA GRADUAÇÃO */
+
+.degree-metadata {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    padding: 22px 0;
+
+    border-top: 1px solid rgba(74, 214, 253, 0.15);
+    border-bottom: 1px solid rgba(74, 214, 253, 0.15);
+
+    margin-bottom: 25px;
+}
+
+.degree-meta-item {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.degree-meta-item > span {
+    color: #7186A8;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.degree-meta-item strong {
+    color: #FFFFFF;
+
+    font-size: 13px;
+}
+
+
+/* CONHECIMENTOS */
+
+.degree-skills {
+    margin-bottom: 30px;
+}
+
+.degree-skills > span {
+    display: block;
+
+    color: #7186A8;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 13px;
+}
+
+.degree-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.degree-tags span {
+    padding: 8px 11px;
+
+    border: 1px solid rgba(74, 214, 253, 0.2);
+
+    border-radius: 5px;
+
+    background: rgba(74, 214, 253, 0.05);
+
+    color: #A8B8D5;
+
+    font-size: 10px;
+
+    transition: 0.3s ease;
+}
+
+.degree-tags span:hover {
+    background: #0554F2;
+
+    border-color: #0554F2;
+
+    color: #FFFFFF;
+}
+
+
+/* BOTÃO */
+
+.degree-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 14px 20px;
+
+    background: #0554F2;
+
+    border: 1px solid #0554F2;
+
+    border-radius: 6px;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.degree-button:hover {
+    background: #4AD6FD;
+
+    border-color: #4AD6FD;
+
+    color: #011640;
+
+    transform: translateY(-3px);
+}
+
+
+/* NAVEGADOR DA UDF */
+
+.degree-browser {
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(74, 214, 253, 0.3);
+
+    border-radius: 12px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.degree-browser-header {
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 15px;
+
+    background: #E8EDF4;
+}
+
+.degree-browser-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.degree-browser-dots span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #F87171;
+}
+
+.degree-browser-dots span:nth-child(2) {
+    background: #FBBF24;
+}
+
+.degree-browser-dots span:nth-child(3) {
+    background: #22C55E;
+}
+
+.degree-browser-address {
+    flex: 1;
+
+    padding: 6px 12px;
+
+    background: #FFFFFF;
+
+    border-radius: 5px;
+
+    color: #52627C;
+
+    font-size: 10px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.degree-browser-icon {
+    color: #475569;
+    font-size: 14px;
+}
+
+.degree-iframe-container {
+    width: 100%;
+    height: 460px;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+}
+
+.degree-iframe-container iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    background: #FFFFFF;
+}
+
+.degree-browser-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 15px;
+
+    border-top: 1px solid #E8EDF4;
+
+    background: #FFFFFF;
+}
+
+.degree-browser-footer span {
+    color: #64748B;
+    font-size: 10px;
+}
+
+.degree-browser-footer a {
+    color: #0554F2;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+/* FORMAÇÃO TÉCNICA */
+
+.technical-education {
+    margin-top: 100px;
+}
+
+.technical-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+}
+
+.technical-header h3 {
+    color: #FFFFFF;
+
+    font-size: clamp(30px, 4vw, 42px);
+
+    line-height: 1.2;
+
+    margin-bottom: 13px;
+}
+
+.technical-header h3 span {
+    color: #4AD6FD;
+}
+
+.technical-header p {
+    max-width: 600px;
+
+    color: #A8B8D5;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.sistec-main-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #4AD6FD;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+.sistec-main-link:hover {
+    color: #FFFFFF;
+}
+
+
+/* CARROSSEL TÉCNICO */
+
+.technical-carousel {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(74, 214, 253, 0.2);
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at 85% 45%,
+            rgba(5, 84, 242, 0.12),
+            transparent 40%
+        ),
+        #011640;
+}
+
+.technical-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.technical-track {
+    display: grid;
+    width: 100%;
+}
+
+
+/* SLIDES */
+
+.technical-slide {
+    grid-area: 1 / 1;
+
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.15fr;
+
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 45px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        visibility 0s linear 0.9s;
+}
+
+.technical-slide.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+
+    z-index: 1;
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        visibility 0s linear 0s;
+}
+
+
+/* INFORMAÇÕES DAS FORMAÇÕES */
+
+.technical-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.technical-kicker {
+    color: #4AD6FD;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 24px;
+}
+
+.technical-info h4 {
+    color: #FFFFFF;
+
+    font-size: clamp(29px, 3.5vw, 42px);
+
+    line-height: 1.15;
+
+    margin-bottom: 15px;
+}
+
+.technical-info h4 span {
+    color: #4AD6FD;
+}
+
+.technical-issuer {
+    color: #4AD6FD;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.7;
+
+    margin-bottom: 21px;
+}
+
+.technical-info > p {
+    color: #A8B8D5;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+}
+
+
+/* DETALHES */
+
+.technical-details {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(74, 214, 253, 0.15);
+    border-bottom: 1px solid rgba(74, 214, 253, 0.15);
+
+    margin-bottom: 23px;
+}
+
+.technical-details > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.technical-details span {
+    color: #7186A8;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.technical-details strong {
+    color: #FFFFFF;
+
+    font-size: 13px;
+}
+
+
+/* VALIDAÇÃO SISTEC */
+
+.sistec-validation {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(74, 214, 253, 0.2);
+
+    border-radius: 8px;
+
+    background: rgba(74, 214, 253, 0.05);
+}
+
+.sistec-validation > span {
+    display: block;
+
+    color: #4AD6FD;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 12px;
+}
+
+.sistec-key-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.sistec-key-row code {
+    color: #FFFFFF;
+
+    font-family: monospace;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+.sistec-copy {
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    border: 1px solid rgba(74, 214, 253, 0.3);
+
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: #4AD6FD;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.sistec-copy:hover {
+    background: #0554F2;
+
+    border-color: #0554F2;
+
+    color: #FFFFFF;
+}
+
+
+/* BOTÃO CONSULTA */
+
+.technical-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 13px 18px;
+
+    background: #0554F2;
+
+    border: 1px solid #0554F2;
+
+    border-radius: 6px;
+
+    color: #FFFFFF;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.technical-button:hover {
+    background: #4AD6FD;
+
+    border-color: #4AD6FD;
+
+    color: #011640;
+
+    transform: translateY(-3px);
+}
+
+
+/* IMAGENS DOS COMPROVANTES */
+
+.technical-document {
+    width: 100%;
+    min-width: 0;
+
+    padding: 15px;
+
+    border: 1px solid rgba(74, 214, 253, 0.25);
+
+    border-radius: 12px;
+
+    background: rgba(5, 84, 242, 0.08);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
+.technical-document > a {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    aspect-ratio: 1.516 / 1;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #FFFFFF;
+}
+
+.technical-document img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.45s ease;
+}
+
+.technical-document > a:hover img {
+    transform: scale(1.035);
+}
+
+.technical-document-label {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    padding: 7px 10px;
+
+    border-radius: 4px;
+
+    background: #0554F2;
+
+    color: #FFFFFF;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* CONTROLES */
+
+.technical-controls {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 45px;
+
+    border-top: 1px solid rgba(74, 214, 253, 0.15);
+}
+
+.technical-pagination {
+    display: flex;
+
+    gap: 10px;
+}
+
+.technical-dot {
+    width: 25px;
+    height: 4px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(168, 184, 213, 0.3);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.technical-dot.active {
+    width: 45px;
+
+    background: #4AD6FD;
+
+    box-shadow: 0 0 10px rgba(74, 214, 253, 0.4);
+}
+
+.technical-navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.technical-arrow {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(74, 214, 253, 0.3);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #4AD6FD;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.technical-arrow:hover {
+    background: #0554F2;
+
+    border-color: #0554F2;
+
+    color: #FFFFFF;
+
+    transform: translateY(-3px);
+}
+
+.technical-caption {
+    display: block;
+
+    color: #7186A8;
+
+    font-size: 11px;
+
+    margin-top: 17px;
+}
+
+
+/* ACESSIBILIDADE */
+
+.technical-arrow:focus-visible,
+.technical-dot:focus-visible,
+.sistec-copy:focus-visible,
+.technical-button:focus-visible,
+.degree-button:focus-visible {
+    outline: 2px solid #4AD6FD;
+
+    outline-offset: 4px;
+}
+
+
+/* RESPONSIVIDADE - TABLETS */
+
+@media (max-width: 950px) {
+
+    .degree-feature {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 30px;
+    }
+
+    .degree-iframe-container {
+        height: 420px;
+    }
+
+    .technical-slide {
+        gap: 25px;
+
+        padding: 30px;
+    }
+
+    .technical-controls {
+        padding: 18px 30px;
+    }
+
+}
+
+
+/* RESPONSIVIDADE - MOBILE */
+
+@media (max-width: 600px) {
+
+    .academic-section {
+        padding: 85px 18px 75px;
+    }
+
+    .academic-header {
+        margin-bottom: 38px;
+    }
+
+    .academic-header h2 {
+        font-size: 37px;
+    }
+
+    .degree-feature {
+        padding: 22px 16px;
+
+        gap: 28px;
+    }
+
+    .degree-content h3 {
+        font-size: 34px;
+    }
+
+    .degree-content > p {
+        font-size: 13px;
+    }
+
+    .degree-metadata {
+        gap: 14px;
+    }
+
+    .degree-browser-header {
+        padding: 0 9px;
+        gap: 8px;
+    }
+
+    .degree-browser-address {
+        font-size: 9px;
+    }
+
+    .degree-iframe-container {
+        height: 350px;
+    }
+
+    .technical-education {
+        margin-top: 70px;
+    }
+
+    .technical-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .technical-slide {
+        grid-template-columns: 1fr;
+
+        padding: 23px 17px;
+
+        gap: 25px;
+    }
+
+    .technical-info h4 {
+        font-size: 32px;
+    }
+
+    .technical-info > p {
+        font-size: 13px;
+    }
+
+    .technical-document {
+        padding: 9px;
+    }
+
+    .technical-controls {
+        padding: 15px 18px;
+    }
+
+    .technical-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .technical-dot {
+        width: 18px;
+    }
+
+    .technical-dot.active {
+        width: 35px;
+    }
+
+}
+
+
+/*  ACESSIBILIDADE - MOVIMENTO REDUZIDO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .technical-slide,
+    .technical-document img,
+    .technical-button,
+    .technical-arrow,
+    .technical-dot {
+        transition: none;
+        transform: none;
+    }
+
+}
