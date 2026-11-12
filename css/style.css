@@ -4601,3 +4601,268 @@ html[data-theme="light"] .footer-bottom-center span {
     }
 
 }
+
+/* ========================================
+   TEMA CLARO - FORMAÇÃO ACADÊMICA
+======================================== */
+
+
+/* FUNDO DA SEÇÃO */
+
+html[data-theme="light"] .academic-section {
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(5, 84, 242, 0.07),
+            transparent 38%
+        ),
+        #F4F7FC;
+
+}
+
+
+/* CABEÇALHO */
+
+html[data-theme="light"] .academic-header h2 {
+    color: #10213F;
+}
+
+html[data-theme="light"] .academic-header h2 span {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .academic-header p {
+    color: #52627C;
+}
+
+
+/* DESTAQUE DA GRADUAÇÃO */
+
+html[data-theme="light"] .degree-feature {
+
+    background: linear-gradient(
+        140deg,
+        #FFFFFF,
+        #EEF4FC
+    );
+
+    border-color: #D3DFEF;
+
+    box-shadow: 0 20px 50px rgba(15, 40, 80, 0.07);
+
+}
+
+html[data-theme="light"] .degree-content h3 {
+    color: #10213F;
+}
+
+html[data-theme="light"] .degree-content h3 span {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .degree-content h4 {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .degree-content > p {
+    color: #52627C;
+}
+
+html[data-theme="light"] .degree-overline {
+    color: #718198;
+}
+
+
+/* STATUS DA GRADUAÇÃO */
+
+html[data-theme="light"] .degree-status {
+    background: rgba(5, 84, 242, 0.07);
+
+    border-color: rgba(5, 84, 242, 0.2);
+
+    color: #0554F2;
+}
+
+html[data-theme="light"] .degree-status-dot {
+    background: #0554F2;
+
+    box-shadow: 0 0 10px rgba(5, 84, 242, 0.3);
+}
+
+
+/* METADADOS */
+
+html[data-theme="light"] .degree-metadata {
+    border-color: #D3DFEF;
+}
+
+html[data-theme="light"] .degree-meta-item > span {
+    color: #718198;
+}
+
+html[data-theme="light"] .degree-meta-item strong {
+    color: #10213F;
+}
+
+
+/* CONHECIMENTOS */
+
+html[data-theme="light"] .degree-skills > span {
+    color: #718198;
+}
+
+html[data-theme="light"] .degree-tags span {
+    background: #FFFFFF;
+
+    border-color: #D3DFEF;
+
+    color: #29466F;
+}
+
+html[data-theme="light"] .degree-tags span:hover {
+    background: #0554F2;
+
+    border-color: #0554F2;
+
+    color: #FFFFFF;
+}
+
+
+/* NAVEGADOR DA UDF */
+
+html[data-theme="light"] .degree-browser {
+    background: #FFFFFF;
+
+    border-color: #D3DFEF;
+
+    box-shadow: 0 20px 50px rgba(15, 40, 80, 0.1);
+}
+
+
+/* ========================================
+   TEMA CLARO - FORMAÇÕES TÉCNICAS
+======================================== */
+
+html[data-theme="light"] .technical-header h3 {
+    color: #10213F;
+}
+
+html[data-theme="light"] .technical-header h3 span {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .technical-header p {
+    color: #52627C;
+}
+
+
+/* CARROSSEL */
+
+html[data-theme="light"] .technical-carousel {
+    background:
+        radial-gradient(
+            circle at 85% 45%,
+            rgba(5, 84, 242, 0.05),
+            transparent 40%
+        ),
+        #FFFFFF;
+
+    border-color: #D3DFEF;
+}
+
+
+/* INFORMAÇÕES */
+
+html[data-theme="light"] .technical-info h4 {
+    color: #10213F;
+}
+
+html[data-theme="light"] .technical-info h4 span {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .technical-info > p {
+    color: #52627C;
+}
+
+html[data-theme="light"] .technical-kicker,
+html[data-theme="light"] .technical-issuer {
+    color: #0554F2;
+}
+
+
+/* DETALHES */
+
+html[data-theme="light"] .technical-details {
+    border-color: #D3DFEF;
+}
+
+html[data-theme="light"] .technical-details span {
+    color: #718198;
+}
+
+html[data-theme="light"] .technical-details strong {
+    color: #10213F;
+}
+
+
+/* VALIDAÇÃO SISTEC */
+
+html[data-theme="light"] .sistec-validation {
+    background: #EEF4FC;
+
+    border-color: #D3DFEF;
+}
+
+html[data-theme="light"] .sistec-validation > span {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .sistec-key-row code {
+    color: #10213F;
+}
+
+html[data-theme="light"] .sistec-copy {
+    border-color: #0554F2;
+
+    color: #0554F2;
+}
+
+
+/* COMPROVANTES */
+
+html[data-theme="light"] .technical-document {
+    background: #FFFFFF;
+
+    border-color: #D3DFEF;
+
+    box-shadow: 0 15px 35px rgba(15, 40, 80, 0.08);
+}
+
+
+/* CONTROLES */
+
+html[data-theme="light"] .technical-controls {
+    border-top-color: #D3DFEF;
+}
+
+html[data-theme="light"] .technical-dot {
+    background: #C5D2E3;
+}
+
+html[data-theme="light"] .technical-dot.active {
+    background: #0554F2;
+}
+
+html[data-theme="light"] .technical-caption {
+    color: #718198;
+}
+
+html[data-theme="light"] .sistec-main-link {
+    color: #0554F2;
+}
+
+html[data-theme="light"] .sistec-main-link:hover {
+    color: #10213F;
+}

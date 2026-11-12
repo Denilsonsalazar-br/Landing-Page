@@ -598,7 +598,11 @@ if (themeToggle) {
 
 }
 
-/*  CARROSSEL DE FORMAÇÕES TÉCNICAS FADE + AUTOPLAY */
+
+/* ========================================
+   10. CARROSSEL DE FORMAÇÕES TÉCNICAS
+   FADE + AUTOPLAY
+======================================== */
 
 const technicalCarousel = document.getElementById(
     "technicalCarousel"
@@ -647,118 +651,181 @@ if (technicalCarousel) {
             (index + totalSlides) % totalSlides;
 
         slides.forEach((slide, i) => {
+
             const active = i === currentSlide;
+
             slide.classList.toggle("active", active);
+
             slide.setAttribute(
                 "aria-hidden",
                 String(!active)
             );
+
             slide.inert = !active;
+
         });
+
 
         // Atualizar indicadores
 
         dots.forEach((dot, i) => {
+
             const active = i === currentSlide;
+
             dot.classList.toggle("active", active);
+
             if (active) {
+
                 dot.setAttribute("aria-current", "true");
+
             } else {
+
                 dot.removeAttribute("aria-current");
+
             }
+
         });
+
     }
 
 
     /* PARAR AUTOPLAY */
 
     function stopTechnicalAutoplay() {
+
         clearInterval(autoplayTimer);
+
         autoplayTimer = null;
+
     }
 
 
     /* INICIAR AUTOPLAY */
 
     function startTechnicalAutoplay() {
+
         stopTechnicalAutoplay();
+
         if (reducedMotion || totalSlides < 2) return;
+
         if (
             isHovered ||
             isFocused ||
             document.hidden
         ) return;
+
         autoplayTimer = setInterval(() => {
+
             updateTechnicalSlide(currentSlide + 1);
+
         }, autoplayDelay);
+
     }
+
 
     /* BOTÃO ANTERIOR */
 
     if (prev) {
+
         prev.addEventListener("click", () => {
+
             updateTechnicalSlide(currentSlide - 1);
+
             startTechnicalAutoplay();
+
         });
+
     }
+
 
     /* BOTÃO PRÓXIMO */
 
     if (next) {
+
         next.addEventListener("click", () => {
+
             updateTechnicalSlide(currentSlide + 1);
+
             startTechnicalAutoplay();
+
         });
+
     }
+
 
     /* INDICADORES */
 
     dots.forEach((dot, index) => {
+
         dot.addEventListener("click", () => {
+
             updateTechnicalSlide(index);
+
             startTechnicalAutoplay();
+
         });
+
     });
 
 
     /* PAUSAR COM MOUSE */
 
     technicalCarousel.addEventListener("mouseenter", () => {
+
         isHovered = true;
+
         stopTechnicalAutoplay();
+
     });
 
 
     technicalCarousel.addEventListener("mouseleave", () => {
+
         isHovered = false;
+
         startTechnicalAutoplay();
+
     });
 
 
     /* PAUSAR COM FOCO */
 
     technicalCarousel.addEventListener("focusin", () => {
+
         isFocused = true;
+
         stopTechnicalAutoplay();
+
     });
 
 
     technicalCarousel.addEventListener("focusout", event => {
+
         if (!technicalCarousel.contains(event.relatedTarget)) {
+
             isFocused = false;
+
             startTechnicalAutoplay();
+
         }
+
     });
 
 
     /* ABA EM SEGUNDO PLANO */
 
     document.addEventListener("visibilitychange", () => {
+
         if (document.hidden) {
+
             stopTechnicalAutoplay();
+
         } else {
+
             startTechnicalAutoplay();
+
         }
+
     });
 
 
@@ -771,7 +838,9 @@ if (technicalCarousel) {
 }
 
 
-/* COPIAR CHAVES DO SISTEC*/
+/* ========================================
+   11. COPIAR CHAVES DO SISTEC
+======================================== */
 
 const sistecCopyButtons = document.querySelectorAll(
     ".sistec-copy"
@@ -823,5 +892,7 @@ sistecCopyButtons.forEach(button => {
             button.innerHTML = originalText;
 
         }, 1800);
+
     });
+
 });
