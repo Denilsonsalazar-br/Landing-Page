@@ -597,3 +597,231 @@ if (themeToggle) {
     });
 
 }
+
+/*  CARROSSEL DE FORMAÇÕES TÉCNICAS FADE + AUTOPLAY */
+
+const technicalCarousel = document.getElementById(
+    "technicalCarousel"
+);
+
+if (technicalCarousel) {
+
+    const track = document.getElementById("technicalTrack");
+
+    const slides = Array.from(
+        track.querySelectorAll(".technical-slide")
+    );
+
+    const dots = Array.from(
+        technicalCarousel.querySelectorAll(".technical-dot")
+    );
+
+    const prev = document.getElementById("technicalPrev");
+
+    const next = document.getElementById("technicalNext");
+
+    let currentSlide = 0;
+
+    let autoplayTimer = null;
+
+    let isHovered = false;
+
+    let isFocused = false;
+
+    const totalSlides = slides.length;
+
+    const autoplayDelay = 5000;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+    /* ATUALIZAR SLIDE */
+
+    function updateTechnicalSlide(index) {
+
+        if (!totalSlides) return;
+
+        currentSlide =
+            (index + totalSlides) % totalSlides;
+
+        slides.forEach((slide, i) => {
+            const active = i === currentSlide;
+            slide.classList.toggle("active", active);
+            slide.setAttribute(
+                "aria-hidden",
+                String(!active)
+            );
+            slide.inert = !active;
+        });
+
+        // Atualizar indicadores
+
+        dots.forEach((dot, i) => {
+            const active = i === currentSlide;
+            dot.classList.toggle("active", active);
+            if (active) {
+                dot.setAttribute("aria-current", "true");
+            } else {
+                dot.removeAttribute("aria-current");
+            }
+        });
+    }
+
+
+    /* PARAR AUTOPLAY */
+
+    function stopTechnicalAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+    }
+
+
+    /* INICIAR AUTOPLAY */
+
+    function startTechnicalAutoplay() {
+        stopTechnicalAutoplay();
+        if (reducedMotion || totalSlides < 2) return;
+        if (
+            isHovered ||
+            isFocused ||
+            document.hidden
+        ) return;
+        autoplayTimer = setInterval(() => {
+            updateTechnicalSlide(currentSlide + 1);
+        }, autoplayDelay);
+    }
+
+    /* BOTÃO ANTERIOR */
+
+    if (prev) {
+        prev.addEventListener("click", () => {
+            updateTechnicalSlide(currentSlide - 1);
+            startTechnicalAutoplay();
+        });
+    }
+
+    /* BOTÃO PRÓXIMO */
+
+    if (next) {
+        next.addEventListener("click", () => {
+            updateTechnicalSlide(currentSlide + 1);
+            startTechnicalAutoplay();
+        });
+    }
+
+    /* INDICADORES */
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            updateTechnicalSlide(index);
+            startTechnicalAutoplay();
+        });
+    });
+
+
+    /* PAUSAR COM MOUSE */
+
+    technicalCarousel.addEventListener("mouseenter", () => {
+        isHovered = true;
+        stopTechnicalAutoplay();
+    });
+
+
+    technicalCarousel.addEventListener("mouseleave", () => {
+        isHovered = false;
+        startTechnicalAutoplay();
+    });
+
+
+    /* PAUSAR COM FOCO */
+
+    technicalCarousel.addEventListener("focusin", () => {
+        isFocused = true;
+        stopTechnicalAutoplay();
+    });
+
+
+    technicalCarousel.addEventListener("focusout", event => {
+        if (!technicalCarousel.contains(event.relatedTarget)) {
+            isFocused = false;
+            startTechnicalAutoplay();
+        }
+    });
+
+
+    /* ABA EM SEGUNDO PLANO */
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopTechnicalAutoplay();
+        } else {
+            startTechnicalAutoplay();
+        }
+    });
+
+
+    /* INICIALIZAÇÃO */
+
+    updateTechnicalSlide(0);
+
+    startTechnicalAutoplay();
+
+}
+
+
+/* COPIAR CHAVES DO SISTEC*/
+
+const sistecCopyButtons = document.querySelectorAll(
+    ".sistec-copy"
+);
+
+sistecCopyButtons.forEach(button => {
+
+    button.addEventListener("click", async () => {
+
+        const key = button.dataset.copy;
+
+        const originalText = button.innerHTML;
+
+        if (!key) return;
+
+        try {
+
+            await navigator.clipboard.writeText(key);
+
+            button.innerHTML = "Copiado ✓";
+
+        } catch (error) {
+
+            // Alternativa para navegadores sem Clipboard API
+
+            const temporaryInput = document.createElement("textarea");
+
+            temporaryInput.value = key;
+
+            temporaryInput.style.position = "fixed";
+            temporaryInput.style.opacity = "0";
+
+            document.body.appendChild(temporaryInput);
+
+            temporaryInput.select();
+
+            const copied = document.execCommand("copy");
+
+            temporaryInput.remove();
+
+            button.innerHTML = copied
+                ? "Copiado ✓"
+                : "Copie manualmente";
+
+        }
+
+        setTimeout(() => {
+
+            button.innerHTML = originalText;
+
+        }, 1800);
+    });
+});
