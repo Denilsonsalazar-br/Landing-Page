@@ -522,9 +522,7 @@
 }
 
 
-/* ========================================
-   HERO - ELEMENTO VISUAL
-======================================== */
+/* HERO - ELEMENTO VISUAL*/
 
 .hero-visual {
     position: relative;
@@ -765,9 +763,7 @@
 }
 
 
-/* ========================================
-   SECTION 02 - QUEM É DENILSON
-======================================== */
+/* QUEM É DENILSON */
 
 .about-section {
     position: relative;
@@ -847,9 +843,7 @@
 }
 
 
-/* ========================================
-   LAYOUT PRINCIPAL
-======================================== */
+/* LAYOUT PRINCIPAL */
 
 .about-layout {
     display: grid;
@@ -866,9 +860,7 @@
 }
 
 
-/* ========================================
-   RESUMO PROFISSIONAL
-======================================== */
+/* RESUMO PROFISSIONAL */
 
 .about-overline {
     display: block;
@@ -908,9 +900,7 @@
 }
 
 
-/* ========================================
-   TECNOLOGIAS
-======================================== */
+/* TECNOLOGIAS */
 
 .about-technologies {
     margin-top: 35px;
@@ -3865,10 +3855,7 @@ html[data-theme="light"] .footer-bottom-center span {
 }
 
 
-/* ========================================
-   PRÉ-VISUALIZAÇÃO UDF
-   CLASSES EXCLUSIVAS DA GRADUAÇÃO
-======================================== */
+/* PRÉ-VISUALIZAÇÃO UDF CLASSES EXCLUSIVAS DA GRADUAÇÃO */
 
 .degree-preview-container {
     position: relative;
@@ -4685,9 +4672,7 @@ html[data-theme="light"] .footer-bottom-center span {
 
 }
 
-/* ========================================
-   TEMA CLARO - FORMAÇÃO ACADÊMICA
-======================================== */
+/* TEMA CLARO - FORMAÇÃO ACADÊMICA */
 
 
 /* FUNDO DA SEÇÃO */
@@ -4823,9 +4808,7 @@ html[data-theme="light"] .degree-browser {
 }
 
 
-/* ========================================
-   TEMA CLARO - FORMAÇÕES TÉCNICAS
-======================================== */
+/* TEMA CLARO - FORMAÇÕES TÉCNICAS */
 
 html[data-theme="light"] .technical-header h3 {
     color: #10213F;
@@ -4948,4 +4931,229 @@ html[data-theme="light"] .sistec-main-link {
 
 html[data-theme="light"] .sistec-main-link:hover {
     color: #10213F;
+}
+
+/*AJUSTE GERAL - TIPOGRAFIA e AUMENTO SUAVE DE LEGIBILIDADE*/
+
+/* NAVBAR */
+
+.nav-links a {
+    font-size: 15px;
+}
+
+.contact-btn {
+    font-size: 15px;
+}
+
+
+/* INÍCIO */
+
+.hero-eyebrow {
+    font-size: 12px;
+}
+
+.hero-content > p {
+    font-size: 17px;
+}
+
+.hero-btn,
+.hero-btn-outline {
+    font-size: 14px;
+}
+
+.hero-socials a {
+    font-size: 13px;
+}
+
+.hero-bottom-line span {
+    font-size: 11px;
+}
+
+
+/* SOBRE MIM */
+
+.about-header > p {
+    font-size: 16px;
+}
+
+.about-introduction p {
+    font-size: 15px;
+}
+
+.technology-tags span {
+    font-size: 13px;
+}
+
+.credentials-header h3 {
+    font-size: 24px;
+}
+
+.credly-link {
+    font-size: 13px;
+}
+
+.credential-info h4 {
+    font-size: 14px;
+}
+
+.credential-info > span {
+    font-size: 11px;
+}
+
+.credential-info small {
+    font-size: 11px;
+}
+
+.credentials-caption {
+    font-size: 11px;
+}
+
+
+/* PROJETOS */
+
+.project-category {
+    font-size: 12px;
+}
+
+.project-content p {
+    font-size: 16px;
+}
+
+.project-tags span {
+    font-size: 12px;
+}
+
+.project-link {
+    font-size: 15px;
+}
+
+
+/* CERTIFICAÇÕES */
+
+.certificate-kicker {
+    font-size: 12px;
+}
+
+.certificate-issuer {
+    font-size: 14px;
+}
+
+.certificate-info p {
+    font-size: 16px;
+}
+
+.certificate-details > span {
+    font-size: 12px;
+}
+
+.certificate-button {
+    font-size: 13px;
+}
+
+.credentials-caption {
+    font-size: 12px;
+}
+
+
+/* FORMAÇÃO ACADÊMICA */
+
+.academic-header p {
+    font-size: 16px;
+}
+
+.degree-content h4 {
+    font-size: 15px;
+}
+
+.degree-content > p {
+    font-size: 15px;
+}
+
+.degree-meta-item strong {
+    font-size: 14px;
+}
+
+.degree-tags span {
+    font-size: 11px;
+}
+
+.degree-button {
+    font-size: 13px;
+}
+
+
+/* FORMAÇÕES TÉCNICAS */
+
+.technical-header p {
+    font-size: 15px;
+}
+
+.technical-info > p {
+    font-size: 15px;
+}
+
+.technical-issuer {
+    font-size: 13px;
+}
+
+.technical-details strong {
+    font-size: 14px;
+}
+
+.technical-button {
+    font-size: 12px;
+}
+
+.technical-caption {
+    font-size: 12px;
+}
+
+
+/* FOOTER */
+
+.footer-brand p {
+    font-size: 14px;
+}
+
+.footer-column ul li a {
+    font-size: 13px;
+}
+
+.footer-contact p {
+    font-size: 13px;
+}
+
+.footer-contact-button {
+    font-size: 13px;
+}
+
+
+/*AJUSTES PARA SMARTPHONES */
+
+@media (max-width: 480px) {
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    .about-introduction p {
+        font-size: 14px;
+    }
+
+    .project-content p {
+        font-size: 15px;
+    }
+
+    .certificate-info p {
+        font-size: 15px;
+    }
+
+    .degree-content > p {
+        font-size: 14px;
+    }
+
+    .technical-info > p {
+        font-size: 14px;
+    }
+
 }
