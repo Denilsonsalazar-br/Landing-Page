@@ -3864,7 +3864,15 @@ html[data-theme="light"] .footer-bottom-center span {
     font-size: 14px;
 }
 
-.degree-iframe-container {
+
+/* ========================================
+   PRÉ-VISUALIZAÇÃO UDF
+   CLASSES EXCLUSIVAS DA GRADUAÇÃO
+======================================== */
+
+.degree-preview-container {
+    position: relative;
+
     width: 100%;
     height: 460px;
 
@@ -3873,16 +3881,91 @@ html[data-theme="light"] .footer-bottom-center span {
     background: #FFFFFF;
 }
 
-.degree-iframe-container iframe {
+
+/* LINK */
+
+.degree-preview-link {
+    position: relative;
+
     display: block;
 
     width: 100%;
     height: 100%;
 
-    border: none;
+    overflow: hidden;
 
     background: #FFFFFF;
 }
+
+/* IMAGEM */
+
+.degree-preview-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+
+/* EFEITO HOVER */
+
+.degree-preview-link:hover .degree-preview-image {
+    transform: scale(1.03);
+}
+
+
+/* IDENTIFICAÇÃO */
+
+.degree-preview-label {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    background: #0554F2;
+
+    color: #FFFFFF;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* FOCO ACESSÍVEL */
+
+.degree-preview-link:focus-visible {
+    outline: 2px solid #4AD6FD;
+    outline-offset: -4px;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 950px) {
+
+    .degree-preview-container {
+        height: 420px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .degree-preview-container {
+        height: 350px;
+    }
+
+}
+
 
 .degree-browser-footer {
     display: flex;
