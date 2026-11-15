@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denilson Salazar</title>
+
+    <!-- Mantém o tema escuro como padrão.-->
+    <script>
+        try {
+            const theme = localStorage.getItem("denilson-theme");
+
+            if (theme === "light" || theme === "dark") {
+                document.documentElement.setAttribute("data-theme", theme);
+            }
+        } catch (error) {
+            
+        }
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    </head>
+<body >
+    
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <nav class="nav-container" aria-label="Navegação principal">
+
+            <!-- LOGO -->
+
+            <a href="#inicio" class="logo" aria-label="Denilson - Página inicial">
+                <img src="img/logo.png" alt="Logo Denilson">
+            </a>
+
+            <!-- LINKS -->
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#inicio" class="active">Início</a>
+                </li>
+                <li>
+                    <a href="#sobre">Quem é o Denilson?</a>
+                </li>
+                <li>
+                    <a href="#projetos">Projetos</a>
+                </li>
+                <li>
+                    <a href="#academico">Acadêmico</a>
+                </li>
+                <li>
+                    <a href="#certificacao">Certificações</a>
+                </li>
+            </ul>
+
+
+            <!-- ALTERNAR TEMA -->
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Ativar tema claro"
+                aria-pressed="false"
+                title="Alternar tema"
+            >
+
+                <!-- ÍCONE SOL -->
+
+                <svg
+                    class="theme-icon theme-icon-sun"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="12" r="4"/>
+
+                    <path d="M12 2v2"/>
+                    <path d="M12 20v2"/>
+                    <path d="m4.93 4.93 1.42 1.42"/>
+                    <path d="m17.65 17.65 1.42 1.42"/>
+                    <path d="M2 12h2"/>
+                    <path d="M20 12h2"/>
+                    <path d="m4.93 19.07 1.42-1.42"/>
+                    <path d="m17.65 6.35 1.42-1.42"/>
+
+                </svg>
+
+
+                <!-- ÍCONE LUA -->
+
+                <svg
+                    class="theme-icon theme-icon-moon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10z"/>
+
+                </svg>
+
+            </button>
+
+
+            <!-- CONTATO -->
+
+            <a
+                href="https://www.linkedin.com/in/denilsonsalazar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-btn"
+            >
+
+                Vamos conversar
+
+                <span>↗</span>
+
+            </a>
+
+
+            <!-- MENU MOBILE -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+    
+        <main>
+
+        <!-- INÍCIO -->
+        <section class="hero-section" id="inicio">
+
+            <div class="hero-container" >
+
+                <div class="hero-content">
+
+                    <span class="hero-eyebrow">
+                        <span class="status-indicator"></span>
+                        ENGENHEIRO DE SOFTWARE & TECNOLOGIA
+                    </span>
+
+                    <h1>
+                        Tecnologia com visão
+                        <span>estratégica.</span>
+                        Soluções com propósito.
+                    </h1>
+
+                    <p>
+                        Sou Denilson Salazar. Estou construindo minha trajetória
+                        na tecnologia conectando desenvolvimento de
+                        software, pensamento estratégico e visão
+                        de negócios para transformar ideias em
+                        soluções digitais.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#sobre" class="hero-btn">
+                            Conheça minha trajetória
+                            <span>↗</span>
+                        </a>
+
+                        <a href="#projetos" class="hero-btn-outline">
+                            Ver projetos
+                        </a>
+
+                    </div>
+
+                    <div class="hero-socials">
+
+                        <span>ACOMPANHE MINHA JORNADA</span>
+                        <a href="https://www.linkedin.com/in/denilsonsalazar"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn ↗
+                        </a>
+
+                        <a href="https://github.com/Denilsonsalazar-br"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ELEMENTO VISUAL -->
+
+                <div class="hero-visual">
+
+                    <div class="hero-orbit hero-orbit-one"></div>
+                    <div class="hero-orbit hero-orbit-two"></div>
+
+                    <div class="hero-code-card">
+
+                        <div class="code-card-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <span>technology.js</span>
+                        </div>
+
+                        <div class="code-card-content">
+
+                            <span class="code-purple">const</span>
+                            <span class="code-cyan"> developer </span>
+                            <span>= {</span>
+
+                            <p>
+                                <span class="code-blue">focus:</span>
+                                <span class="code-green"> "Innovation",</span>
+                            </p>
+
+                            <p>
+                                <span class="code-blue">mindset:</span>
+                                <span class="code-green"> "Strategy",</span>
+                            </p>
+
+                            <p>
+                                <span class="code-blue">passion:</span>
+                                <span class="code-green"> "Technology"</span>
+                            </p>
+
+                            <p>
+                                <span class="code-blue">passion:</span>
+                                <span class="code-green"> "Management"</span>
+                            </p>
+
+                            <span>}</span>
+
+                            <div class="code-cursor"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-floating-element">
+                        <span>DS</span>
+                        <small>DENILSON SALAZAR</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-bottom-line">
+                <span>DESENVOLVIMENTO</span>
+                <span>ESTRATÉGIA</span>
+                <span>INOVAÇÃO</span>
+                <span>TECNOLOGIA</span>
+            </div>
+
+        </section>
+
+        <!-- QUEM É DENILSON -->
+        <section class="about-section" id="sobre">
+
+            <div class="about-container">
+
+                <!-- CABEÇALHO -->
+
+                <div class="about-header">
+
+                    <span class="section-label">
+                        CONHEÇA MINHA TRAJETÓRIA
+                    </span>
+
+                    <h2>
+                        Quem é <span>Denilson?</span>
+                    </h2>
+
+                    <p>
+                        Conhecimento, tecnologia e evolução contínua.
+                    </p>
+
+                </div>
+
+
+                <!-- CONTEÚDO -->
+
+                <div class="about-layout">
+                    <!-- RESUMO E CERTIFICAÇÕES -->
+                    <div class="about-content">
+
+                        <div class="about-introduction">
+
+                            <span class="about-overline">
+                                SOBRE MIM
+                            </span>
+
+                            <h3>
+                                Construindo o futuro através
+                                da <span>tecnologia.</span>
+                            </h3>
+
+                            <p>
+                                Sou graduando em Engenharia de Software
+                                pela UDF, com formação técnica em
+                                Informática e Administração.
+
+                                Tenho direcionado minha trajetória para
+                                o desenvolvimento de software, engenharia
+                                de sistemas e criação de soluções digitais.
+                            </p>
+
+                            <p>
+                                Minha experiência prática envolve o
+                                desenvolvimento de projetos utilizando
+                                PHP, JavaScript, Python, HTML, CSS e SQL,
+                                além de conhecimentos em MySQL, Git,
+                                GitHub e arquitetura MVC.
+                            </p>
+
+                            <p>
+                                A combinação entre tecnologia e
+                                Administração amplia minha visão sobre
+                                processos, organização e necessidades
+                                de negócio. Meu objetivo é transformar
+                                conhecimento em soluções que gerem valor.
+                            </p>
+
+                        </div>
+
+
+                        <!-- TECNOLOGIAS -->
+
+                        <div class="about-technologies">
+
+                            <span class="about-overline">
+                                TECNOLOGIAS, LINGUAGENS, FERRAMENTAS E CONHECIMENTOS
+                            </span>
+
+                            <div class="technology-tags">
+
+                                <span>PHP</span>
+                                <span>JavaScript</span>
+                                <span>Python</span>
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>SQL</span>
+                                <span>MySQL</span>
+                                <span>Git</span>
+                                <span>GitHub</span>
+                                <span>MVC</span>
+                            </div>
+                        </div>
+
+
+                        <!-- CARROSSEL DE CERTIFICAÇÕES -->
+                        <div class="credentials-section">
+                            <div class="credentials-header">
+                                <div>
+
+                                    <span class="about-overline">
+                                        CERTIFICAÇÕES & CONQUISTAS
+                                    </span>
+
+                                    <h3>
+                                        Aprendizado contínuo.
+                                    </h3>
+                                </div>
+
+                                <a
+                                    href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="credly-link"
+                                >
+                                    Meu Credly ↗
+                                </a>
+
+                            </div>
+
+
+                            <!-- CARROSSEL -->
+
+                            <div class="credentials-carousel">
+
+                                <button
+                                    class="badge-arrow badge-prev"
+                                    id="badgePrev"
+                                    aria-label="Certificações anteriores"
+                                >
+                                    ←
+                                </button>
+
+
+                                <div class="credentials-viewport">
+
+                                    <div class="credentials-track"
+                                        id="credentialsTrack">
+
+
+                                        <!-- CSS ESSENTIALS -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>CSS</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>CSS Essentials</h4>
+                                                <span>Cisco</span>
+                                                <small>Desenvolvimento Web</small>
+                                            </div>
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+
+                                        <!-- HTML ESSENTIALS -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>HTML</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>HTML Essentials</h4>
+                                                <span>Cisco Networking Academy</span>
+                                                <small>Desenvolvimento Web</small>
+                                            </div>
+
+                                            <span class="credential-arrow">↗</span>
+
+                                        </a>
+
+                                        <!-- PYTHON -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>Py</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>Python Essentials 1</h4>
+                                                <span>Cisco</span>
+                                                <small>Programação</small>
+                                            </div>
+
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+                                        <!-- NETWORKING BASICS -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>NET</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>Networking Basics</h4>
+                                                <span>Cisco</span>
+                                                <small>Redes de Computadores</small>
+                                            </div>
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+                                        <!-- NETWORKING DEVICES -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>NET+</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>Networking Devices and Initial Configuration</h4>
+                                                <span>Cisco Networking Academy</span>
+                                                <small>Infraestrutura e Redes</small>
+                                            </div>
+
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+                                        <!-- MODERN AI -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            <div class="credential-icon">
+                                                <span>AI</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>Introduction to Modern AI</h4>
+                                                <span>Cisco</span>
+                                                <small>Inteligência Artificial</small>
+                                            </div>
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+                                        <!-- CYBERSECURITY -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>SEC</span>
+                                            </div>
+                                            <div class="credential-info">
+                                                <h4>Introduction to Cybersecurity</h4>
+                                                <span>Cisco</span>
+                                                <small>Cibersegurança</small>
+                                            </div>
+
+                                            <span class="credential-arrow">↗</span>
+                                        </a>
+
+
+                                        <!-- ENDPOINT SECURITY -->
+
+                                        <a class="credential-card"
+                                            href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <div class="credential-icon">
+                                                <span>ES</span>
+                                            </div>
+
+                                            <div class="credential-info">
+                                                <h4>Endpoint Security</h4>
+                                                <span>Cisco Networking Academy</span>
+                                                <small>Segurança da Informação</small>
+                                            </div>
+
+                                            <span class="credential-arrow">↗</span>
+
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="badge-arrow badge-next"
+                                    id="badgeNext"
+                                    aria-label="Próximas certificações"
+                                >
+                                    →
+                                </button>
+                            </div>
+
+                            <span class="credentials-caption">
+                                Certificações Cisco. Consulte as credenciais
+                                no meu perfil Credly.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- FOTO PROFISSIONAL -->
+
+                    <div class="about-photo-column">
+                        <div class="about-photo">
+                            <img
+                                src="img/foto/denilson.jpeg"
+                                alt="Denilson Salazar - Perfil profissional"
+                                loading="lazy"
+                            >
+
+                            <div class="photo-overlay">
+
+                                <span>DENILSON SALAZAR</span>
+                                <p>
+                                    Software Engineering
+                                    & Technology
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="about-photo-caption">
+                            <span class="photo-status"></span>
+
+                            <span>
+                                Conhecimento em constante evolução.
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="https://www.linkedin.com/in/denilsonsalazar"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="about-linkedin"
+                        >
+                            Conecte-se comigo no LinkedIn ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section class="projects-section" >
+            <div class="projects-container" id="projetos">
+                <div class="projects-header">
+                    <span class="section-label">PORTFÓLIO / PROJETOS</span>
+                    <h2>
+                        Transformando ideias em
+                        <span>soluções digitais.</span>
+                    </h2>
+                    <p>
+                        Conheça alguns projetos que desenvolvi,
+                        conectando tecnologia, estratégia e negócios.
+                    </p>
+                </div>
+                <!-- CARROSSEL -->
+                <div class="projects-carousel" id="projectsCarousel">
+                    <!-- ÁREA VISÍVEL -->
+                    <div class="projects-viewport">
+                        <div class="projects-track" id="projectsTrack">
+
+                            <!-- PROJETO 01 -->
+                            <article class="project-slide">
+                                <div class="project-content">
+                                    <span class="project-category">
+                                        PROJETO 01 / LANDING-PAGE VIBE CODING 
+                                    </span>
+                                    <h3>
+                                        Refrigeração
+                                        <span>Salazar.</span>
+                                    </h3>
+                                    <p>
+                                        Desenvolvimento de uma solução digital
+                                        para uma empresa especializada em
+                                        refrigeração, climatização e assistência
+                                        técnica de ar-condicionado.
+                                    </p>
+                                    <div class="project-tags">
+                                        <span>Refrigeração</span>
+                                        <span>Climatização</span>
+                                        <span>Assistência Técnica</span>
+                                        <span>Landing Page</span>
+                                        <span>VibeCoding</span>
+                                    </div>
+                                    <a
+                                        href="https://refrigeracaosalazar.base44.app/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="project-link"
+                                    >
+                                        Explorar projeto ↗
+                                    </a>
+                                </div>
+
+                                <div class="project-visual project-preview">
+                                    <iframe
+                                        src="https://refrigeracaosalazar.base44.app/"
+                                        title="Refrigeração Salazar"
+                                        loading="eager">
+                                    </iframe>
+                                </div>
+                            </article>
+
+                            <!-- PROJETO 02 -->
+                            <article class="project-slide">
+                                <div class="project-content">
+                                    <span class="project-category">
+                                        PROJETO 02 / LANDING-PAGE VIBE CODING  
+                                    </span>
+                                    <h3>
+                                        NorteSul
+                                        <span>Móveis.</span>
+                                    </h3>
+                                    <p>
+                                        Desenvolvimento de uma presença digital
+                                        para uma marca especializada em móveis
+                                        rústicos de madeira maciça, valorizando
+                                        design, identidade e apresentação
+                                        dos produtos.
+                                    </p>
+                                    <div class="project-tags">
+                                        <span>Design</span>
+                                        <span>Madeira maciça</span>
+                                        <span>Landing Page</span>
+                                        <span>VibeCoding</span>
+                                        <span>Apresentação de produtos</span>
+                                    </div>
+                                    <a
+                                        href="https://nortesulmoveis.base44.app/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="project-link"
+                                    >
+                                        Explorar projeto ↗
+                                    </a>
+                                </div>
+                                <div class="project-visual project-preview">
+                                    <iframe
+                                        src="https://nortesulmoveis.base44.app/"
+                                        title="NorteSul Móveis"
+                                        loading="eager">
+                                    </iframe>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- CONTROLES -->
+                    <div class="projects-controls">
+                        <div class="carousel-pagination">
+                            <button
+                                class="carousel-dot active"
+                                data-slide="0"
+                                aria-label="Projeto Refrigeração Salazar">
+                            </button>
+                            <button
+                                class="carousel-dot"
+                                data-slide="1"
+                                aria-label="Projeto NorteSul Móveis">
+                            </button>
+                        </div>
+                        <div class="carousel-navigation">
+                            <button
+                                id="projectPrev"
+                                class="carousel-arrow"
+                                aria-label="Projeto anterior">
+                                ←
+                            </button>
+                            <button
+                                id="projectNext"
+                                class="carousel-arrow"
+                                aria-label="Próximo projeto">
+                                →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACADÊMICO -->
+        <section class="academic-section" id="academico">
+            <div class="academic-container">
+
+                <!-- CABEÇALHO -->
+
+                <div class="academic-header">
+                    <span class="section-label">
+                        TRAJETÓRIA EDUCACIONAL
+                    </span>
+
+                    <h2>
+                        Formação e
+                        <span>conhecimento.</span>
+                    </h2>
+
+                    <p>
+                        Uma trajetória construída através da educação,
+                        do desenvolvimento de habilidades técnicas
+                        e da busca contínua por conhecimento.
+                    </p>
+
+                </div>
+
+
+                <!-- GRADUAÇÃO  -->
+
+                <article class="degree-feature">
+
+                    <!-- INFORMAÇÕES DA GRADUAÇÃO -->
+
+                    <div class="degree-content">
+                        <div class="degree-status">
+                            <span class="degree-status-dot"></span>
+                            GRADUAÇÃO EM ANDAMENTO
+                        </div>
+
+
+                        <span class="degree-overline">
+                            FORMAÇÃO SUPERIOR
+                        </span>
+
+
+                        <h3>
+                            Engenharia de
+                            <span>Software.</span>
+                        </h3>
+
+
+                        <h4>
+                            UDF — Centro Universitário
+                            do Distrito Federal
+                        </h4>
+
+
+                        <p>
+                            Atualmente estou cursando Bacharelado
+                            em Engenharia de Software, aprofundando
+                            meus conhecimentos em desenvolvimento
+                            de sistemas, programação, arquitetura
+                            de software e engenharia de soluções digitais.
+                        </p>
+
+
+                        <!-- INFORMAÇÕES -->
+
+                        <div class="degree-metadata">
+                            <div class="degree-meta-item">
+                                <span>GRAU ACADÊMICO</span>
+                                <strong>Bacharelado</strong>
+                            </div>
+
+
+                            <div class="degree-meta-item">
+                                <span>INSTITUIÇÃO</span>
+                                <strong>UDF</strong>
+                            </div>
+
+
+                            <div class="degree-meta-item">
+                                <span>DURAÇÃO INFORMADA</span>
+                                <strong>8 semestres · 4 anos</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONHECIMENTOS -->
+
+                        <div class="degree-skills">
+                            <span>ÁREAS DE CONHECIMENTO</span>
+                            <div class="degree-tags">
+
+                                <span>Programação</span>
+                                <span>Arquitetura de Software</span>
+                                <span>Banco de Dados</span>
+                                <span>Inteligência Artificial</span>
+                                <span>Noções de Segurança</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTÃO -->
+
+                        <a
+                            href="https://cursos.udf.edu.br/grad-engenharia-de-software-udf/p"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="degree-button"
+                        >
+                            Conhecer a graduação
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- SITE DA UDF INCORPORADO -->
+
+                    <div class="degree-browser">
+                        <div class="degree-browser-header">
+                            <div class="degree-browser-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <div class="degree-browser-address">
+
+                                cursos.udf.edu.br
+
+                            </div>
+
+                            <span class="degree-browser-icon">
+                                ↗
+                            </span>
+
+                        </div>
+
+                        
+                        <!-- PRÉ-VISUALIZAÇÃO EXCLUSIVA DA UDF -->
+
+                        <div class="degree-preview-container">
+
+                            <a
+                                href="https://cursos.udf.edu.br/grad-engenharia-de-software-udf/p"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="degree-preview-link"
+                                aria-label="Visualizar página da graduação em Engenharia de Software da UDF"
+                            >
+
+                                <img
+                                    src="img/academico/udf-engenharia-software-preview.webp"
+                                    alt="Página oficial da graduação em Engenharia de Software da UDF"
+                                    class="degree-preview-image"
+                                    loading="lazy"
+                                >
+
+                                <span class="degree-preview-label">
+                                    PÁGINA OFICIAL DA GRADUAÇÃO
+                                </span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="degree-browser-footer">
+                            <span>
+                                Página oficial da graduação
+                            </span>
+                            <a
+                                href="https://cursos.udf.edu.br/grad-engenharia-de-software-udf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Abrir em nova aba ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FORMAÇÕES TÉCNICAS -->
+
+                <div class="technical-education">
+                    <!-- CABEÇALHO -->
+                    <div class="technical-header">
+                        <div>
+                            <span class="section-label">
+                                FORMAÇÃO PROFISSIONAL
+                            </span>
+                            <h3>
+                                Formação <span>técnica.</span>
+                            </h3>
+                            <p>
+                                Duas formações técnicas registradas no
+                                Sistema Nacional de Informações da
+                                Educação Profissional e Tecnológica.
+                            </p>
+                        </div>
+
+                        <a
+                            href="https://sistec.mec.gov.br/validadenacional"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="sistec-main-link"
+                        >
+
+                            Consultar SISTEC
+
+                            <span>↗</span>
+                        </a>
+                    </div>
+
+
+
+                    <!-- CARROSSEL TÉCNICO -->
+
+                    <div class="technical-carousel"
+                        id="technicalCarousel">
+
+                        <div class="technical-viewport">
+
+                            <div class="technical-track"
+                                id="technicalTrack">
+
+
+                                <!-- TÉCNICO EM ADMINISTRAÇÃO -->
+
+                                <article class="technical-slide active">
+                                    <div class="technical-info">
+                                        <span class="technical-kicker">
+                                            FORMAÇÃO TÉCNICA 01 / 02
+                                        </span>
+
+                                        <h4>
+                                            Técnico em
+                                            <span>Administração.</span>
+                                        </h4>
+
+                                        <span class="technical-issuer">
+                                            Centro de Educação Profissional
+                                            Escola Técnica de Ceilândia
+                                        </span>
+
+                                        <p>
+                                            Formação profissional voltada
+                                            aos conhecimentos de administração,
+                                            organização e processos de gestão,
+                                            contribuindo para uma visão integrada
+                                            entre tecnologia e negócios.
+                                        </p>
+
+                                        <!-- INFORMAÇÕES -->
+
+                                        <div class="technical-details">
+                                            <div>
+                                                <span>CARGA HORÁRIA</span>
+                                                <strong>800 horas</strong>
+                                            </div>
+
+                                            <div>
+                                                <span>REGISTRO SISTEC</span>
+                                                <strong>09/09/2026</strong>
+                                            </div>
+                                        </div>
+
+                                        <!-- CHAVE DE AUTENTICAÇÃO -->
+
+                                        <div class="sistec-validation">
+                                            <span>
+                                                CHAVE DE AUTENTICAÇÃO
+                                            </span>
+
+                                            <div class="sistec-key-row">
+                                                <code>
+                                                    93801/128728660CM
+                                                </code>
+
+                                                <button
+                                                    type="button"
+                                                    class="sistec-copy"
+                                                    data-copy="93801/128728660CM"
+                                                    aria-label="Copiar chave do curso Técnico em Administração"
+                                                >
+                                                    <span>Copiar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- CONSULTA -->
+
+                                        <a
+                                            href="https://sistec.mec.gov.br/validadenacional"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="technical-button"
+                                        >
+                                            Consultar validade no SISTEC
+                                            <span>↗</span>
+                                        </a>
+                                    </div>
+
+                                    <!-- COMPROVANTE -->
+
+                                    <div class="technical-document">
+                                        <a
+                                            href="img/academico/tecnico-administracao-sistec-redigido.png"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Visualizar certidão SISTEC - Técnico em Administração"
+                                        >
+                                            <img
+                                                src="img/academico/tecnico-administracao-sistec-redigido.png"
+                                                alt="Certidão de validade nacional do diploma de Técnico em Administração"
+                                                loading="lazy"
+                                            >
+                                            <span class="technical-document-label">
+                                                REGISTRO SISTEC
+                                            </span>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <!-- TÉCNICO EM INFORMÁTICA -->
+
+                                <article class="technical-slide">
+                                    <div class="technical-info">
+                                        <span class="technical-kicker">
+                                            FORMAÇÃO TÉCNICA 02 / 02
+                                        </span>
+
+                                        <h4>
+                                            Técnico em
+                                            <span>Informática.</span>
+                                        </h4>
+
+                                        <span class="technical-issuer">
+                                            Centro de Educação Profissional
+                                            Escola Técnica de Ceilândia
+                                        </span>
+
+                                        <p>
+                                            Formação técnica voltada à área
+                                            de informática e tecnologia,
+                                            fortalecendo minha base de
+                                            conhecimentos para a evolução
+                                            profissional no desenvolvimento
+                                            de soluções digitais.
+                                        </p>
+
+
+                                        <!-- INFORMAÇÕES -->
+
+                                        <div class="technical-details">
+                                            <div>
+                                                <span>CARGA HORÁRIA</span>
+                                                <strong>1.200 horas</strong>
+                                            </div>
+
+                                            <div>
+                                                <span>REGISTRO SISTEC</span>
+                                                <strong>18/02/2025</strong>
+                                            </div>
+                                        </div>
+
+                                        <!-- CHAVE DE AUTENTICAÇÃO -->
+
+                                        <div class="sistec-validation">
+                                            <span>
+                                                CHAVE DE AUTENTICAÇÃO
+                                            </span>
+
+                                            <div class="sistec-key-row">
+                                                <code>
+                                                    22270/109013145CM
+                                                </code>
+
+                                                <button
+                                                    type="button"
+                                                    class="sistec-copy"
+                                                    data-copy="22270/109013145CM"
+                                                    aria-label="Copiar chave do curso Técnico em Informática"
+                                                >
+                                                    <span>Copiar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- CONSULTA -->
+
+                                        <a
+                                            href="https://sistec.mec.gov.br/validadenacional"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="technical-button"
+                                        >
+                                            Consultar validade no SISTEC
+                                            <span>↗</span>
+                                        </a>
+                                    </div>
+
+                                    <!-- COMPROVANTE -->
+
+                                    <div class="technical-document">
+                                        <a
+                                            href="img/academico/tecnico-informatica-sistec-redigido.png"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Visualizar certidão SISTEC - Técnico em Informática"
+                                        >
+
+                                            <img
+                                                src="img/academico/tecnico-informatica-sistec-redigido.png"
+                                                alt="Certidão de validade nacional do diploma de Técnico em Informática"
+                                                loading="lazy"
+                                            >
+                                            <span class="technical-document-label">
+                                                REGISTRO SISTEC
+                                            </span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- CONTROLES -->
+                        
+                        <div class="technical-controls">
+                            <div class="technical-pagination">
+                                <button
+                                    class="technical-dot active"
+                                    data-slide="0"
+                                    aria-label="Técnico em Administração"
+                                    aria-current="true"
+                                ></button>
+                                <button
+                                    class="technical-dot"
+                                    data-slide="1"
+                                    aria-label="Técnico em Informática"
+                                ></button>
+                            </div>
+
+                            <div class="technical-navigation">
+                                <button
+                                    class="technical-arrow"
+                                    id="technicalPrev"
+                                    aria-label="Formação anterior"
+                                >
+                                    ←
+                                </button>
+                                <button
+                                    class="technical-arrow"
+                                    id="technicalNext"
+                                    aria-label="Próxima formação"
+                                >
+                                    →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="technical-caption">
+                        Os registros podem ser consultados no portal oficial
+                        de validação nacional do SISTEC.
+                    </span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CERTIFICAÇÕES -->
+        <section class="certifications-section" >
+
+            <!-- CARROSSEL DE CERTIFICAÇÕES -->
+
+            <div class="credentials-section" id="certificacao">
+
+                <!-- CABEÇALHO -->
+
+                <div class="credentials-header">
+                    <div>
+                        <span class="about-overline">
+                            CERTIFICAÇÕES & CONQUISTAS
+                        </span>
+                        <h3>Conhecimento em constante evolução.</h3>
+                    </div>
+
+                    <a
+                        href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="credly-link"
+                    >
+                        Meu Credly ↗
+                    </a>
+                </div>
+
+
+                <!-- CARROSSEL -->
+
+                <div class="certificate-carousel" id="certificateCarousel">
+                    <div class="certificate-viewport">
+                        
+                        <div class="certificate-track" id="certificateTrack">
+
+                            <!-- CSS ESSENTIALS -->
+
+                            <article class="certificate-slide active">
+                                <div class="certificate-info">
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 01 / 06
+                                    </span>
+
+                                    <h4>CSS Essentials</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Certificação voltada aos fundamentos de estilização
+                                        e apresentação de páginas web utilizando CSS,
+                                        desenvolvendo conhecimentos para construção
+                                        de interfaces e aplicações web.
+                                    </p>
+
+                                    <div class="certificate-details">
+
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            02/09/2026
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Cisco Cert ID:</strong>
+                                            477e3b70-3799-4ce6-8e09-0bfbe841b99f
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            d77f262c-62d2-4f4a-b9de-5536ad0e3233
+                                        </span>
+                                    </div>
+
+                                    <div class="certificate-actions">
+                                        <a
+                                            href="certificados/PDF/CSS-Essential.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/d77f262c-62d2-4f4a-b9de-5536ad0e3233"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="certificate-document">
+                                    <a
+                                        href="certificados/PDF/CSS-Essential.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado CSS Essentials"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/css-essentials.webp"
+                                            alt="Certificado CSS Essentials - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+
+
+                            <!-- HTML ESSENTIALS -->
+
+                            <article class="certificate-slide">
+                                <div class="certificate-info">
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 02 / 06
+                                    </span>
+
+                                    <h4>HTML Essentials</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Formação nos fundamentos de HTML, estruturação
+                                        de documentos e construção de páginas para
+                                        aplicações web, abordando os elementos essenciais
+                                        da linguagem de marcação.
+                                    </p>
+
+                                    <div class="certificate-details">
+
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            26/08/2026
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Cisco Cert ID:</strong>
+                                            920f8604-a18a-46c2-b0a4-1c378300ad7d
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            29a1157d-1375-476d-831d-482ceaa92057
+                                        </span>
+                                    </div>
+
+                                    <div class="certificate-actions">
+                                        <a
+                                            href="certificados/PDF/HTMLEssential.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/29a1157d-1375-476d-831d-482ceaa92057"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div class="certificate-document">
+                                    <a
+                                        href="certificados/PDF/HTMLEssential.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado HTML Essentials"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/html-essentials.webp"
+                                            alt="Certificado HTML Essentials - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+
+
+
+                            <!-- PYTHON ESSENTIALS 1 -->
+
+                            <article class="certificate-slide">
+                                <div class="certificate-info">
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 03 / 06
+                                    </span>
+
+                                    <h4>Python Essentials 1</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Formação introdutória em programação com Python,
+                                        abordando conceitos fundamentais da linguagem,
+                                        lógica de programação e desenvolvimento
+                                        de soluções computacionais.
+                                    </p>
+
+                                    <div class="certificate-details">
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            22/08/2026
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Cisco Cert ID:</strong>
+                                            460b187f-f6d9-4179-af18-9127572eae11
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            92345400-707b-46c6-a639-55274f1b7a48
+                                        </span>
+                                    </div>
+
+                                    <div class="certificate-actions">
+                                        <a
+                                            href="certificados/PDF/PythonEssentials1Update20260822-8-ik0wan.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/92345400-707b-46c6-a639-55274f1b7a48"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="certificate-document">
+                                    <a
+                                        href="certificados/PDF/PythonEssentials1Update20260822-8-ik0wan.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado Python Essentials 1"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/python-essentials-1.webp"
+                                            alt="Certificado Python Essentials 1 - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <!-- ENDPOINT SECURITY -->
+
+                            <article class="certificate-slide">
+                                <div class="certificate-info">
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 04 / 06
+                                    </span>
+
+                                    <h4>Endpoint Security</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Certificação relacionada à segurança de endpoints,
+                                        abordando fundamentos de proteção de dispositivos,
+                                        ameaças digitais e segurança de ambientes conectados.
+                                    </p>
+
+                                    <div class="certificate-details">
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            14/10/2026
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Cisco Cert ID:</strong>
+                                            b98e5f15-6e23-488f-98dd-bbbf19601bcc
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            47f7c286-3e9c-42d7-9c49-aa3f3790ba55
+                                        </span>
+                                    </div>
+
+                                    <div class="certificate-actions">
+                                        <a
+                                            href="certificados/PDF/Certificado-Denilson-EndpointSecurity.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/47f7c286-3e9c-42d7-9c49-aa3f3790ba55"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="certificate-document">
+                                    <a
+                                        href="certificados/PDF/Certificado-Denilson-EndpointSecurity.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado Endpoint Security"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/endpoint-security-cisco.webp"
+                                            alt="Certificado Endpoint Security - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <!-- INTRODUCTION TO MODERN AI -->
+
+                            <article class="certificate-slide">
+                                <div class="certificate-info">
+
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 05 / 06
+                                    </span>
+
+                                    <h4>Introduction to Modern AI</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Formação introdutória sobre inteligência artificial
+                                        moderna, seus conceitos fundamentais e aplicações
+                                        da tecnologia no cenário atual.
+                                    </p>
+
+                                    <div class="certificate-details">
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            22/03/2026
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            7fcd807f-1ad1-48b7-a81d-0c112f4e3f7a
+                                        </span>
+
+                                    </div>
+
+                                    <div class="certificate-actions">
+                                        <a
+                                            href="certificados/PDF/IntrotoModernAIUpdate20260822-8-e16jfz.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/7fcd807f-1ad1-48b7-a81d-0c112f4e3f7a"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div class="certificate-document">
+
+                                    <a
+                                        href="certificados/PDF/IntrotoModernAIUpdate20260822-8-e16jfz.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado Introduction to Modern AI"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/introduction-to-modern-ai.webp"
+                                            alt="Certificado Introduction to Modern AI - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+
+                                    </a>
+
+                                </div>
+
+                            </article>
+
+                            <!-- INTRODUCTION TO CYBERSECURITY -->
+
+                            <article class="certificate-slide">
+                                <div class="certificate-info">
+
+                                    <span class="certificate-kicker">
+                                        CERTIFICAÇÃO 06 / 06
+                                    </span>
+
+                                    <h4>Introduction to Cybersecurity</h4>
+
+                                    <span class="certificate-issuer">
+                                        Cisco Networking Academy
+                                    </span>
+
+                                    <p>
+                                        Formação introdutória em cibersegurança,
+                                        abordando segurança no ambiente digital,
+                                        ameaças, ataques, vulnerabilidades e formas
+                                        de proteção de pessoas e organizações.
+                                    </p>
+
+                                    <div class="certificate-details">
+
+                                        <span>
+                                            <strong>Emissão:</strong>
+                                            22/08/2024
+                                        </span>
+
+                                        <span class="certificate-id">
+                                            <strong>Credly Badge ID:</strong>
+                                            7452fd22-911c-499f-a31a-e3068fba87e6
+                                        </span>
+
+                                    </div>
+
+                                    <div class="certificate-actions">
+
+                                        <a
+                                            href="certificados/PDF/I2CSUpdate20260822-8-tbaq2u.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button"
+                                        >
+                                            Visualizar certificado ↗
+                                        </a>
+
+                                        <a
+                                            href="https://www.credly.com/badges/7452fd22-911c-499f-a31a-e3068fba87e6"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="certificate-button certificate-button-outline"
+                                        >
+                                            Ver badge Credly ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div class="certificate-document">
+
+                                    <a
+                                        href="certificados/PDF/I2CSUpdate20260822-8-tbaq2u.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Abrir certificado Introduction to Cybersecurity"
+                                    >
+
+                                        <img
+                                            src="img/certificacoes/previews/introduction-to-cybersecurity.webp"
+                                            alt="Certificado Introduction to Cybersecurity - Cisco Networking Academy"
+                                            loading="lazy"
+                                        >
+
+                                        <span class="document-label">
+                                            PDF ORIGINAL
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- CONTROLES -->
+
+                    <div class="certificate-controls">
+
+                        <div class="certificate-pagination"
+                            id="certificatePagination">
+
+                            <button class="certificate-dot active"
+                                    data-slide="0"
+                                    aria-label="Certificação CSS Essentials"
+                                    aria-current="true"></button>
+
+                            <button class="certificate-dot"
+                                    data-slide="1"
+                                    aria-label="Certificação HTML Essentials"></button>
+
+                            <button class="certificate-dot"
+                                    data-slide="2"
+                                    aria-label="Certificação Python Essentials 1"></button>
+
+                            <button class="certificate-dot"
+                                    data-slide="3"
+                                    aria-label="Certificação Endpoint Security"></button>
+
+                            <button class="certificate-dot"
+                                    data-slide="4"
+                                    aria-label="Certificação Introduction to Modern AI"></button>
+
+                            <button class="certificate-dot"
+                                    data-slide="5"
+                                    aria-label="Introduction to Cybersecurity"
+                                    aria-current="true"></button>
+                        </div>
+
+
+                        <div class="certificate-navigation">
+                            <button
+                                class="certificate-arrow"
+                                id="certificatePrev"
+                                aria-label="Certificação anterior"
+                            >
+                                ←
+                            </button>
+
+                            <button
+                                class="certificate-arrow"
+                                id="certificateNext"
+                                aria-label="Próxima certificação"
+                            >
+                                →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="credentials-caption">
+                    Certificações e conquistas profissionais.
+                    Consulte os documentos originais e valide suas credenciais no Credly.
+                </span>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contato">
+        <div class="footer-container">
+            
+            <!-- PARTE SUPERIOR -->
+
+
+            <div class="footer-main">
+
+                <!-- IDENTIDADE -->
+
+                <div class="footer-brand">
+                    <a href="#inicio" class="footer-logo">
+                        <img
+                            src="img/logo.png"
+                            alt="Logo Denilson Salazar"
+                        >
+
+                    </a>
+
+                    <h3>DENILSON SALAZAR</h3>
+
+                    <span class="footer-brand-subtitle">
+                        SOFTWARE ENGINEERING & TECHNOLOGY
+                    </span>
+
+                    <p>
+                        Transformando conhecimento em soluções digitais.
+                        Tecnologia, estratégia e evolução contínua.
+                    </p>
+                </div>
+
+
+                <!-- NAVEGAÇÃO -->
+
+                <div class="footer-column">
+                    <h4>NAVEGAÇÃO</h4>
+                    <ul>
+                        <li>
+                            <a href="#inicio">Início</a>
+                        </li>
+
+                        <li>
+                            <a href="#sobre">Quem é o Denilson</a>
+                        </li>
+
+                        <li>
+                            <a href="#projetos">Projetos</a>
+                        </li>
+
+                        <li>
+                            <a href="#academico">Acadêmico</a>
+                        </li>
+
+                        <li>
+                            <a href="#certificacao">Certificações</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- REDES PROFISSIONAIS -->
+
+                <div class="footer-column">
+                    <h4>CONECTE-SE</h4>
+                    <ul>
+
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/denilsonsalazar"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://github.com/Denilsonsalazar-br"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.credly.com/users/denilson-salazar/badges/credly"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Credly
+                                <span>↗</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONTATO -->
+
+                <div class="footer-contact">
+
+                    <span class="footer-contact-label">
+                        VAMOS CONVERSAR?
+                    </span>
+
+                    <h4>
+                        Vamos construir
+                        algo juntos?
+                    </h4>
+
+                    <p>
+                        Estou aberto a conexões, ideias e
+                        oportunidades na área de tecnologia.
+                    </p>
+
+                    <a
+                        href="https://www.linkedin.com/in/denilsonsalazar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-contact-button"
+                    >
+                        Entrar em contato
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- LINHA DIVISÓRIA -->
+
+            <div class="footer-divider"></div>
+
+
+            <!-- PARTE INFERIOR -->
+
+            <div class="footer-bottom">
+
+                <div class="footer-copyright">
+
+                    <span>
+                        © <span id="currentYear">2026</span>
+                        Denilson Salazar.
+                        Todos os direitos reservados.
+                    </span>
+
+                </div>
+
+
+                <div class="footer-bottom-center">
+
+                    <span>
+                        Desenvolvido com
+                        <strong>HTML</strong>,
+                        <strong>CSS</strong> e
+                        <strong>JavaScript</strong>.
+                    </span>
+
+                </div>
+
+
+                <a href="#inicio" class="back-to-top">
+
+                    VOLTAR AO TOPO
+
+                    <span>↑</span>
+
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

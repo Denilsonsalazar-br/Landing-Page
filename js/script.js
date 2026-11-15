@@ -1,189 +1,140 @@
+
+/* 1. NAVBAR, MENU MOBILE E SEÇÃO ATIVA */
+
 const navbar = document.getElementById("navbar");
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    const links = document.querySelectorAll(".nav-links a");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const anchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
-    // Efeito ao rolar a página
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 30);
+// Efeito ao rolar a página (também roda ao carregar, para páginas recarregadas já rolada)
+function updateNavbar() {
+    navbar.classList.toggle("scrolled", window.scrollY > 30);
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true });
+updateNavbar();
+
+// Abrir/fechar menu mobile
+function setMenu(open, restoreFocus = false) {
+    navLinks.classList.toggle("open", open);
+    menuToggle.classList.toggle("active", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+
+    if (!open && restoreFocus) menuToggle.focus();
+}
+
+menuToggle.addEventListener("click", () => {
+    setMenu(!navLinks.classList.contains("open"));
+});
+
+// Marcar o link ativo
+function setActiveLink(id) {
+    anchorLinks.forEach(link => {
+        const active = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("active", active);
+
+        if (active) {
+            link.setAttribute("aria-current", "true");
+        } else {
+            link.removeAttribute("aria-current");
+        }
     });
+}
 
-    // Abrir e fechar menu mobile
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-
-      menuToggle.classList.toggle("active", isOpen);
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Fechar menu" : "Abrir menu"
-      );
+// Fechar menu ao clicar em um link
+anchorLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        setActiveLink(link.getAttribute("href").slice(1));
+        setMenu(false);
     });
+});
 
-    // Fechar menu ao clicar em um link
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        links.forEach(item => item.classList.remove("active"));
-        link.classList.add("active");
-
-        navLinks.classList.remove("open");
-        menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Abrir menu");
-      });
-    });
-
-    // Fechar menu ao pressionar ESC
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        navLinks.classList.remove("open");
-        menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Abrir menu");
-      }
-    });
-
-/* CARROSSEL DE PROJETOS
-
-const projectsCarousel = document.getElementById("projectsCarousel");
-
-if (projectsCarousel) {
-    const track = document.getElementById("projectsTrack");
-    const slides = Array.from(
-        track.querySelectorAll(".project-slide")
-    );
-    const dots = Array.from(
-        projectsCarousel.querySelectorAll(".carousel-dot")
-    );
-
-    const prev = document.getElementById("projectPrev");
-    const next = document.getElementById("projectNext");
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-
-
-    // Atualizar carrossel
-
-    function updateProjects(index) {
-        if (!totalSlides) return;
-        currentSlide =
-            (index + totalSlides) % totalSlides;
-
-        track.style.transform =
-            `translateX(-${currentSlide * 100}%)`;
-
-
-        // Atualizar indicadores
-        dots.forEach((dot, i) => {
-            dot.classList.toggle(
-                "active",
-                i === currentSlide
-            );
-        });
-
-
-        // Controlar slides visíveis para acessibilidade
-
-        slides.forEach((slide, i) => {
-            const active = i === currentSlide;
-            slide.setAttribute(
-                "aria-hidden",
-                String(!active)
-            );
-            slide.inert = !active;
-        });
+// Fechar menu ao clicar fora dele
+document.addEventListener("click", event => {
+    if (
+        navLinks.classList.contains("open") &&
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ) {
+        setMenu(false);
     }
+});
 
+// Fechar menu com ESC e devolver o foco ao botão
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        setMenu(false, true);
+    }
+});
 
-    // Botão anterior
-
-    prev.addEventListener("click", () => {
-        updateProjects(currentSlide - 1);
-    });
-
-
-    // Próximo projeto
-
-    next.addEventListener("click", () => {
-        updateProjects(currentSlide + 1);
-    });
-
-    // Indicadores
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            updateProjects(index);
+// Destacar no menu a seção visível durante a rolagem
+if ("IntersectionObserver" in window) {
+    const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) setActiveLink(entry.target.id);
         });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+
+    anchorLinks.forEach(link => {
+        const target = document.getElementById(link.getAttribute("href").slice(1));
+        if (target) spy.observe(target);
     });
-
-    // Navegação por teclado
-
-    projectsCarousel.addEventListener("keydown", event => {
-        if (event.key === "ArrowRight") {
-            updateProjects(currentSlide + 1);
-        }
-        if (event.key === "ArrowLeft") {
-            updateProjects(currentSlide - 1);
-        }
-    });
-
-    // Inicialização
-    updateProjects(0);
-}*/
-
-/* CARROSSEL AUTOMÁTICO DE PROJETOS*/
-
-const projectsCarousel = document.getElementById("projectsCarousel");
-if (projectsCarousel) {
-
-    const track = document.getElementById("projectsTrack");
-    const slides = Array.from(
-        track.querySelectorAll(".project-slide")
-    );
-    const dots = Array.from(
-        projectsCarousel.querySelectorAll(".carousel-dot")
-    );
-    const prev = document.getElementById("projectPrev");
-    const next = document.getElementById("projectNext");
+}
 
 
-    // CONFIGURAÇÕES
+/* ========================================
+   2. CARROSSEL FADE + AUTOPLAY (reutilizável)
+   Usado em: projetos, certificações e formações técnicas
+======================================== */
 
-    let currentSlide = 0;
-    let autoplayTimer = null;
-    let isHovered = false;
-    let isFocused = false;
-    const totalSlides = slides.length;
-    const autoplayDelay = 5000;
-    const prefersReducedMotion = window.matchMedia(
+const carousels = [];
+
+function createFadeCarousel({
+    rootId,
+    slideSelector,
+    dotSelector,
+    prevId,
+    nextId,
+    navSelector,
+    arrowClass,
+    delay = 5000
+}) {
+    const root = document.getElementById(rootId);
+    if (!root) return;
+
+    const slides = Array.from(root.querySelectorAll(slideSelector));
+    const dots = Array.from(root.querySelectorAll(dotSelector));
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
+    const total = slides.length;
+    if (!total) return;
+
+    const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    let current = 0;
+    let timer = null;
+    let hovered = false;
+    let focused = false;
+    let userPaused = false;
+    let pauseButton = null;
 
-    /* ATUALIZAR PROJETOS */
+    function show(index) {
+        current = (index + total) % total;
 
-    function updateProjects(index) {
-        if (!totalSlides) return;
-        currentSlide =
-            (index + totalSlides) % totalSlides;
-
-
-        // Atualizar slides
         slides.forEach((slide, i) => {
-            const active = i === currentSlide;
+            const active = i === current;
             slide.classList.toggle("active", active);
-            slide.setAttribute(
-                "aria-hidden",
-                String(!active)
-            );
+            slide.setAttribute("aria-hidden", String(!active));
             slide.inert = !active;
         });
 
-
-        // Atualizar indicadores
         dots.forEach((dot, i) => {
-            const active = i === currentSlide;
+            const active = i === current;
             dot.classList.toggle("active", active);
+
             if (active) {
                 dot.setAttribute("aria-current", "true");
             } else {
@@ -192,125 +143,172 @@ if (projectsCarousel) {
         });
     }
 
-
-    /* PARAR AUTOPLAY */
-
-    function stopAutoplay() {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
+    function stop() {
+        clearInterval(timer);
+        timer = null;
     }
 
+    function start() {
+        stop();
 
-    /* INICIAR AUTOPLAY */
+        if (reducedMotion || total < 2) return;
+        if (userPaused || hovered || focused || document.hidden) return;
 
-    function startAutoplay() {
-        stopAutoplay();
-
-        // Respeitar acessibilidade
-        if (prefersReducedMotion) return;
-
-        // Não avançar durante interações
-        if (isHovered || isFocused || document.hidden) return;
-        autoplayTimer = setInterval(() => {
-            updateProjects(currentSlide + 1);
-        }, autoplayDelay);
+        timer = setInterval(() => show(current + 1), delay);
     }
 
-    /* BOTÃO PROJETO ANTERIOR */
+    // Botão de pausa (WCAG 2.2.2): o usuário controla a rotação automática
+    if (!reducedMotion && total > 1) {
+        const nav = root.querySelector(navSelector);
 
-    prev.addEventListener("click", () => {
-        updateProjects(currentSlide - 1);
-        startAutoplay();
-    });
+        if (nav) {
+            pauseButton = document.createElement("button");
+            pauseButton.type = "button";
+            pauseButton.className = `${arrowClass} carousel-pause`;
+            pauseButton.setAttribute("aria-pressed", "false");
 
-    /* BOTÃO PRÓXIMO PROJETO */
+            const renderPause = () => {
+                pauseButton.textContent = userPaused ? "▶" : "❚❚";
+                pauseButton.setAttribute("aria-pressed", String(userPaused));
+                pauseButton.setAttribute(
+                    "aria-label",
+                    userPaused
+                        ? "Retomar rotação automática"
+                        : "Pausar rotação automática"
+                );
+            };
 
-    next.addEventListener("click", () => {
-        updateProjects(currentSlide + 1);
-        startAutoplay();
-    });
+            renderPause();
 
+            pauseButton.addEventListener("click", () => {
+                userPaused = !userPaused;
+                renderPause();
+                start();
+            });
 
-    /* INDICADORES */
+            nav.prepend(pauseButton);
+        }
+    }
+
+    if (prev) {
+        prev.addEventListener("click", () => {
+            show(current - 1);
+            start();
+        });
+    }
+
+    if (next) {
+        next.addEventListener("click", () => {
+            show(current + 1);
+            start();
+        });
+    }
 
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-            updateProjects(index);
-            startAutoplay();
+            show(index);
+            start();
         });
     });
 
-    /* PAUSAR AO PASSAR O MOUSE */
-
-    projectsCarousel.addEventListener("mouseenter", () => {
-        isHovered = true;
-        stopAutoplay();
+    root.addEventListener("mouseenter", () => {
+        hovered = true;
+        stop();
     });
 
-    projectsCarousel.addEventListener("mouseleave", () => {
-        isHovered = false;
-        startAutoplay();
+    root.addEventListener("mouseleave", () => {
+        hovered = false;
+        start();
     });
 
-
-    /* PAUSAR DURANTE NAVEGAÇÃO POR TECLADO */
-
-    projectsCarousel.addEventListener("focusin", () => {
-        isFocused = true;
-        stopAutoplay();
+    root.addEventListener("focusin", () => {
+        focused = true;
+        stop();
     });
 
-    projectsCarousel.addEventListener("focusout", event => {
-        if (!projectsCarousel.contains(event.relatedTarget)) {
-            isFocused = false;
-            startAutoplay();
+    root.addEventListener("focusout", event => {
+        if (!root.contains(event.relatedTarget)) {
+            focused = false;
+            start();
         }
     });
 
-    /* CONTROLAR ABA DO NAVEGADOR */
+    carousels.push({ start, stop });
 
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            stopAutoplay();
-        } else {
-            startAutoplay();
-        }
-    });
-
-    /* INICIALIZAÇÃO */
-
-    updateProjects(0);
-
-    startAutoplay();
-
+    show(0);
+    start();
 }
 
-/* CARROSSEL DE CERTIFICAÇÕES */
+// Uma única escuta para aba em segundo plano
+document.addEventListener("visibilitychange", () => {
+    carousels.forEach(carousel => {
+        if (document.hidden) {
+            carousel.stop();
+        } else {
+            carousel.start();
+        }
+    });
+});
 
-const credentialsViewport = document.querySelector(
-    ".credentials-viewport"
-);
+createFadeCarousel({
+    rootId: "projectsCarousel",
+    slideSelector: ".project-slide",
+    dotSelector: ".carousel-dot",
+    prevId: "projectPrev",
+    nextId: "projectNext",
+    navSelector: ".carousel-navigation",
+    arrowClass: "carousel-arrow"
+});
+
+createFadeCarousel({
+    rootId: "certificateCarousel",
+    slideSelector: ".certificate-slide",
+    dotSelector: ".certificate-dot",
+    prevId: "certificatePrev",
+    nextId: "certificateNext",
+    navSelector: ".certificate-navigation",
+    arrowClass: "certificate-arrow"
+});
+
+createFadeCarousel({
+    rootId: "technicalCarousel",
+    slideSelector: ".technical-slide",
+    dotSelector: ".technical-dot",
+    prevId: "technicalPrev",
+    nextId: "technicalNext",
+    navSelector: ".technical-navigation",
+    arrowClass: "technical-arrow"
+});
+
+
+/* ========================================
+   3. CARROSSEL DE BADGES (rolagem horizontal)
+======================================== */
+
+const credentialsViewport = document.querySelector(".credentials-viewport");
 
 if (credentialsViewport) {
-
     const badgePrev = document.getElementById("badgePrev");
     const badgeNext = document.getElementById("badgeNext");
+    const badgeTrack = credentialsViewport.querySelector(".credentials-track");
 
-
-    // Calcula a distância de navegação
-
+    // Lê o espaçamento real do CSS em vez de repetir o valor aqui
     function getBadgeScrollDistance() {
-        const card = credentialsViewport.querySelector(
-            ".credential-card"
-        );
+        const card = credentialsViewport.querySelector(".credential-card");
         if (!card) return credentialsViewport.clientWidth;
-        const cardWidth = card.offsetWidth;
-        const gap = 14;
-        return (cardWidth + gap) * 2;
+
+        const gap = parseFloat(getComputedStyle(badgeTrack).columnGap) || 0;
+        return (card.offsetWidth + gap) * 2;
     }
 
+    // Desabilita as setas nas pontas
+    function updateBadgeArrows() {
+        const maxScroll =
+            credentialsViewport.scrollWidth - credentialsViewport.clientWidth - 1;
 
-    // Navegar para a esquerda
+        badgePrev.disabled = credentialsViewport.scrollLeft <= 0;
+        badgeNext.disabled = credentialsViewport.scrollLeft >= maxScroll;
+    }
 
     badgePrev.addEventListener("click", () => {
         credentialsViewport.scrollBy({
@@ -319,186 +317,25 @@ if (credentialsViewport) {
         });
     });
 
-
-    // Navegar para a direita
-
     badgeNext.addEventListener("click", () => {
         credentialsViewport.scrollBy({
             left: getBadgeScrollDistance(),
             behavior: "smooth"
         });
     });
+
+    credentialsViewport.addEventListener("scroll", updateBadgeArrows, {
+        passive: true
+    });
+    window.addEventListener("resize", updateBadgeArrows);
+    window.addEventListener("load", updateBadgeArrows);
+    updateBadgeArrows();
 }
 
 
-/* CARROSSEL DE CERTIFICAÇÕES FADE + AUTOPLAY */
-
-const certificateCarousel = document.getElementById(
-    "certificateCarousel"
-);
-
-if (certificateCarousel) {
-
-    const track = document.getElementById("certificateTrack");
-    const slides = Array.from(
-        track.querySelectorAll(".certificate-slide")
-    );
-    const dots = Array.from(
-        certificateCarousel.querySelectorAll(".certificate-dot")
-    );
-
-    const prev = document.getElementById("certificatePrev");
-
-    const next = document.getElementById("certificateNext");
-
-    let currentSlide = 0;
-    let autoplayTimer = null;
-
-    let isHovered = false;
-    let isFocused = false;
-
-    const totalSlides = slides.length;
-    const autoplayDelay = 5000;
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-
-    /* ATUALIZAR SLIDE */
-
-    function updateCertificate(index) {
-
-        if (!totalSlides) return;
-
-        currentSlide =
-            (index + totalSlides) % totalSlides;
-        slides.forEach((slide, i) => {
-            const active = i === currentSlide;
-            slide.classList.toggle("active", active);
-            slide.setAttribute(
-                "aria-hidden",
-                String(!active)
-            );
-            slide.inert = !active;
-        });
-
-
-        // Atualizar indicadores
-
-        dots.forEach((dot, i) => {
-            const active = i === currentSlide;
-            dot.classList.toggle("active", active);
-            if (active) {
-                dot.setAttribute("aria-current", "true");
-            } else {
-                dot.removeAttribute("aria-current");
-            }
-        });
-
-    }
-
-
-    /* PARAR AUTOPLAY */
-
-    function stopCertificateAutoplay() {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
-    }
-
-
-    /* INICIAR AUTOPLAY */
-
-    function startCertificateAutoplay() {
-        stopCertificateAutoplay();
-        if (reducedMotion) return;
-        if (
-            isHovered ||
-            isFocused ||
-            document.hidden
-        ) return;
-        autoplayTimer = setInterval(() => {
-            updateCertificate(currentSlide + 1);
-        }, autoplayDelay);
-
-    }
-
-
-    /* BOTÃO ANTERIOR */
-
-    prev.addEventListener("click", () => {
-        updateCertificate(currentSlide - 1);
-        startCertificateAutoplay();
-    });
-
-
-    /* BOTÃO PRÓXIMO */
-
-    next.addEventListener("click", () => {
-        updateCertificate(currentSlide + 1);
-        startCertificateAutoplay();
-    });
-
-
-    /* INDICADORES */
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            updateCertificate(index);
-            startCertificateAutoplay();
-        });
-    });
-
-
-    /* PAUSAR AO PASSAR O MOUSE */
-
-    certificateCarousel.addEventListener("mouseenter", () => {
-        isHovered = true;
-        stopCertificateAutoplay();
-    });
-
-
-    certificateCarousel.addEventListener("mouseleave", () => {
-        isHovered = false;
-        startCertificateAutoplay();
-    });
-
-
-    /* PAUSAR DURANTE INTERAÇÃO */
-
-    certificateCarousel.addEventListener("focusin", () => {
-        isFocused = true;
-        stopCertificateAutoplay();
-    });
-
-
-    certificateCarousel.addEventListener("focusout", event => {
-        if (!certificateCarousel.contains(event.relatedTarget)) {
-            isFocused = false;
-            startCertificateAutoplay();
-        }
-    });
-
-
-    /* ABA EM SEGUNDO PLANO */
-
-    document.addEventListener("visibilitychange", () => {
-
-        if (document.hidden) {
-            stopCertificateAutoplay();
-        } else {
-            startCertificateAutoplay();
-        }
-    });
-
-
-    /* INICIALIZAÇÃO */
-
-    updateCertificate(0);
-    startCertificateAutoplay();
-}
-
-
-/* FOOTER  */
+/* ========================================
+   4. RODAPÉ — ANO ATUAL
+======================================== */
 
 const currentYear = document.getElementById("currentYear");
 
@@ -507,392 +344,96 @@ if (currentYear) {
 }
 
 
-/* ALTERNÂNCIA DE TEMA */
+/* ========================================
+   5. ALTERNÂNCIA DE TEMA
+======================================== */
 
 const themeToggle = document.getElementById("themeToggle");
-
 const htmlElement = document.documentElement;
 
-
-// Aplicar tema
-
 function applyTheme(theme) {
-
     const isLight = theme === "light";
 
-    htmlElement.setAttribute(
-        "data-theme",
-        isLight ? "light" : "dark"
-    );
-
+    htmlElement.setAttribute("data-theme", isLight ? "light" : "dark");
     themeToggle.setAttribute(
         "aria-label",
         isLight ? "Ativar tema escuro" : "Ativar tema claro"
     );
-
-    themeToggle.setAttribute(
-        "aria-pressed",
-        String(isLight)
-    );
-
+    themeToggle.setAttribute("aria-pressed", String(isLight));
     themeToggle.setAttribute(
         "title",
         isLight ? "Alternar para tema escuro" : "Alternar para tema claro"
     );
-
 }
-
-
-// Recuperar preferência salva
-
-let savedTheme = "dark";
-
-try {
-
-    const storedTheme = localStorage.getItem("denilson-theme");
-
-    if (storedTheme === "light" || storedTheme === "dark") {
-        savedTheme = storedTheme;
-    }
-
-} catch (error) {
-
-    console.warn("Não foi possível recuperar o tema salvo.", error);
-
-}
-
-
-// Inicializar tema
 
 if (themeToggle) {
+    let savedTheme = "dark";
+
+    try {
+        const storedTheme = localStorage.getItem("denilson-theme");
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+            savedTheme = storedTheme;
+        }
+    } catch (error) {
+        console.warn("Não foi possível recuperar o tema salvo.", error);
+    }
 
     applyTheme(savedTheme);
 
-
-    // Alternar tema ao clicar
-
     themeToggle.addEventListener("click", () => {
-
-        const currentTheme =
-            htmlElement.getAttribute("data-theme");
-
         const newTheme =
-            currentTheme === "dark" ? "light" : "dark";
+            htmlElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
 
         applyTheme(newTheme);
 
-
-        // Salvar preferência
-
         try {
-
             localStorage.setItem("denilson-theme", newTheme);
-
         } catch (error) {
-
             console.warn("Não foi possível salvar o tema.", error);
-
         }
-
     });
-
 }
 
 
 /* ========================================
-   10. CARROSSEL DE FORMAÇÕES TÉCNICAS
-   FADE + AUTOPLAY
+   6. COPIAR CHAVES DO SISTEC
 ======================================== */
 
-const technicalCarousel = document.getElementById(
-    "technicalCarousel"
-);
-
-if (technicalCarousel) {
-
-    const track = document.getElementById("technicalTrack");
-
-    const slides = Array.from(
-        track.querySelectorAll(".technical-slide")
-    );
-
-    const dots = Array.from(
-        technicalCarousel.querySelectorAll(".technical-dot")
-    );
-
-    const prev = document.getElementById("technicalPrev");
-
-    const next = document.getElementById("technicalNext");
-
-    let currentSlide = 0;
-
-    let autoplayTimer = null;
-
-    let isHovered = false;
-
-    let isFocused = false;
-
-    const totalSlides = slides.length;
-
-    const autoplayDelay = 5000;
-
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-
-    /* ATUALIZAR SLIDE */
-
-    function updateTechnicalSlide(index) {
-
-        if (!totalSlides) return;
-
-        currentSlide =
-            (index + totalSlides) % totalSlides;
-
-        slides.forEach((slide, i) => {
-
-            const active = i === currentSlide;
-
-            slide.classList.toggle("active", active);
-
-            slide.setAttribute(
-                "aria-hidden",
-                String(!active)
-            );
-
-            slide.inert = !active;
-
-        });
-
-
-        // Atualizar indicadores
-
-        dots.forEach((dot, i) => {
-
-            const active = i === currentSlide;
-
-            dot.classList.toggle("active", active);
-
-            if (active) {
-
-                dot.setAttribute("aria-current", "true");
-
-            } else {
-
-                dot.removeAttribute("aria-current");
-
-            }
-
-        });
-
-    }
-
-
-    /* PARAR AUTOPLAY */
-
-    function stopTechnicalAutoplay() {
-
-        clearInterval(autoplayTimer);
-
-        autoplayTimer = null;
-
-    }
-
-
-    /* INICIAR AUTOPLAY */
-
-    function startTechnicalAutoplay() {
-
-        stopTechnicalAutoplay();
-
-        if (reducedMotion || totalSlides < 2) return;
-
-        if (
-            isHovered ||
-            isFocused ||
-            document.hidden
-        ) return;
-
-        autoplayTimer = setInterval(() => {
-
-            updateTechnicalSlide(currentSlide + 1);
-
-        }, autoplayDelay);
-
-    }
-
-
-    /* BOTÃO ANTERIOR */
-
-    if (prev) {
-
-        prev.addEventListener("click", () => {
-
-            updateTechnicalSlide(currentSlide - 1);
-
-            startTechnicalAutoplay();
-
-        });
-
-    }
-
-
-    /* BOTÃO PRÓXIMO */
-
-    if (next) {
-
-        next.addEventListener("click", () => {
-
-            updateTechnicalSlide(currentSlide + 1);
-
-            startTechnicalAutoplay();
-
-        });
-
-    }
-
-
-    /* INDICADORES */
-
-    dots.forEach((dot, index) => {
-
-        dot.addEventListener("click", () => {
-
-            updateTechnicalSlide(index);
-
-            startTechnicalAutoplay();
-
-        });
-
-    });
-
-
-    /* PAUSAR COM MOUSE */
-
-    technicalCarousel.addEventListener("mouseenter", () => {
-
-        isHovered = true;
-
-        stopTechnicalAutoplay();
-
-    });
-
-
-    technicalCarousel.addEventListener("mouseleave", () => {
-
-        isHovered = false;
-
-        startTechnicalAutoplay();
-
-    });
-
-
-    /* PAUSAR COM FOCO */
-
-    technicalCarousel.addEventListener("focusin", () => {
-
-        isFocused = true;
-
-        stopTechnicalAutoplay();
-
-    });
-
-
-    technicalCarousel.addEventListener("focusout", event => {
-
-        if (!technicalCarousel.contains(event.relatedTarget)) {
-
-            isFocused = false;
-
-            startTechnicalAutoplay();
-
-        }
-
-    });
-
-
-    /* ABA EM SEGUNDO PLANO */
-
-    document.addEventListener("visibilitychange", () => {
-
-        if (document.hidden) {
-
-            stopTechnicalAutoplay();
-
-        } else {
-
-            startTechnicalAutoplay();
-
-        }
-
-    });
-
-
-    /* INICIALIZAÇÃO */
-
-    updateTechnicalSlide(0);
-
-    startTechnicalAutoplay();
-
-}
-
-
-/* ========================================
-   11. COPIAR CHAVES DO SISTEC
-======================================== */
-
-const sistecCopyButtons = document.querySelectorAll(
-    ".sistec-copy"
-);
-
-sistecCopyButtons.forEach(button => {
+document.querySelectorAll(".sistec-copy").forEach(button => {
+    // Guardado uma única vez: cliques rápidos não corrompem mais o texto original
+    const originalHTML = button.innerHTML;
+    let resetTimer = null;
+
+    button.setAttribute("aria-live", "polite");
 
     button.addEventListener("click", async () => {
-
         const key = button.dataset.copy;
-
-        const originalText = button.innerHTML;
-
         if (!key) return;
 
+        let copied = false;
+
         try {
-
             await navigator.clipboard.writeText(key);
-
-            button.innerHTML = "Copiado ✓";
-
+            copied = true;
         } catch (error) {
-
             // Alternativa para navegadores sem Clipboard API
-
             const temporaryInput = document.createElement("textarea");
-
             temporaryInput.value = key;
-
             temporaryInput.style.position = "fixed";
             temporaryInput.style.opacity = "0";
-
             document.body.appendChild(temporaryInput);
-
             temporaryInput.select();
 
-            const copied = document.execCommand("copy");
-
+            copied = document.execCommand("copy");
             temporaryInput.remove();
-
-            button.innerHTML = copied
-                ? "Copiado ✓"
-                : "Copie manualmente";
-
         }
 
-        setTimeout(() => {
+        button.textContent = copied ? "Copiado ✓" : "Copie manualmente";
 
-            button.innerHTML = originalText;
-
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+            button.innerHTML = originalHTML;
         }, 1800);
-
     });
-
 });
