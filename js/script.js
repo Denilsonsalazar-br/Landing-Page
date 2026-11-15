@@ -1,4 +1,3 @@
-
 /* 1. NAVBAR, MENU MOBILE E SEÇÃO ATIVA */
 
 const navbar = document.getElementById("navbar");
@@ -437,21 +436,6 @@ document.querySelectorAll(".sistec-copy").forEach(button => {
         }, 1800);
     });
 });
-
-// animação do mouse
-const section = document.querySelector("#inicio");
-
-if (section) {
-    section.addEventListener("mousemove", (event) => {
-        const rect = section.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        // Aqui você chama a função que cria o efeito do rastro
-        criarParticula(x, y);
-    });
-}
 
 /* EFEITO DE RASTRO DO MOUSE */
 
