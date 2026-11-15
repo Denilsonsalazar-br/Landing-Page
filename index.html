@@ -32,6 +32,7 @@
 
     <!-- JavaScript -->
     <script src="js/script.js" defer></script>
+    <script src="js/i18n.js" defer></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
@@ -83,6 +84,39 @@
                 </li>
             </ul>
 
+
+            <!-- SELETOR DE IDIOMA -->
+            <div class="language-picker" id="languagePicker">
+                <button
+                    class="language-toggle"
+                    id="languageToggle"
+                    type="button"
+                    aria-label="Selecionar idioma"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    title="Selecionar idioma"
+                >
+                    <span class="language-current" id="languageCurrent">PT</span>
+                    <svg viewBox="0 0 12 12" aria-hidden="true">
+                        <path d="m2 4 4 4 4-4" />
+                    </svg>
+                </button>
+
+                <div class="language-menu" id="languageMenu" role="menu" aria-label="Idioma">
+                    <button type="button" class="language-option active" data-lang="pt-BR" role="menuitem">
+                        <span>🇧🇷</span> Português
+                    </button>
+                    <button type="button" class="language-option" data-lang="en" role="menuitem">
+                        <span>🇺🇸</span> English
+                    </button>
+                    <button type="button" class="language-option" data-lang="es" role="menuitem">
+                        <span>🇪🇸</span> Español
+                    </button>
+                    <button type="button" class="language-option" data-lang="fr" role="menuitem">
+                        <span>🇫🇷</span> Francês
+                    </button>
+                </div>
+            </div>
 
             <!-- ALTERNAR TEMA -->
 
@@ -868,11 +902,7 @@
 
 
                         <p>
-                            Atualmente estou cursando Bacharelado
-                            em Engenharia de Software, aprofundando
-                            meus conhecimentos em desenvolvimento
-                            de sistemas, programação, arquitetura
-                            de software e engenharia de soluções digitais.
+                            Atualmente, estou concluindo o 2º semestre do Bacharelado em Engenharia de Software, desenvolvendo e aprofundando meus conhecimentos em programação, desenvolvimento de sistemas, arquitetura de software e construção de soluções digitais. Buscando sempre ampliar continuamente minhas competências técnicas e aplicar os conhecimentos adquiridos em projetos práticos.
                         </p>
 
 
@@ -1932,7 +1962,7 @@
                         <li>
                             <a href="#academico">Graduação</a>
                         </li>
-                        
+
                         <li>
                             <a href="#formacao">Formações</a>
                         </li>

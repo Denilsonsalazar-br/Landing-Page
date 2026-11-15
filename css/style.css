@@ -4760,3 +4760,152 @@ html[data-theme="light"] .sistec-main-link:hover {
     cursor: default;
     pointer-events: none;
 }
+
+
+
+/* ========================================
+   SELETOR DE IDIOMA — NAVBAR
+======================================== */
+.language-picker {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 1005;
+}
+
+.language-toggle {
+    min-width: 58px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 10px;
+    border: 1px solid rgba(74, 214, 253, 0.3);
+    border-radius: 22px;
+    background: rgba(74, 214, 253, 0.06);
+    color: #4AD6FD;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+.language-toggle:hover,
+.language-picker.open .language-toggle {
+    background: #0554F2;
+    border-color: #0554F2;
+    color: #fff;
+}
+
+.language-toggle svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .25s ease;
+}
+
+.language-picker.open .language-toggle svg {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 165px;
+    padding: 7px;
+    display: grid;
+    gap: 3px;
+    border: 1px solid rgba(74, 214, 253, .2);
+    border-radius: 12px;
+    background: #071b40;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, .28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-7px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+
+.language-picker.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 11px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #dce8fa;
+    font: inherit;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.language-option:hover,
+.language-option.active {
+    background: rgba(74, 214, 253, .12);
+    color: #4AD6FD;
+}
+
+.language-option span {
+    font-size: 16px;
+}
+
+.language-toggle:focus-visible,
+.language-option:focus-visible {
+    outline: 2px solid #4AD6FD;
+    outline-offset: 3px;
+}
+
+html[data-theme="light"] .language-menu {
+    background: #fff;
+    border-color: #dce6f4;
+    box-shadow: 0 14px 35px rgba(15, 40, 80, .14);
+}
+
+html[data-theme="light"] .language-option {
+    color: #263b5c;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    background: #edf5ff;
+    color: #0554F2;
+}
+
+@media (max-width: 900px) {
+    .language-toggle {
+        height: 38px;
+        min-width: 54px;
+    }
+
+    .language-menu {
+        top: calc(100% + 10px);
+        right: -5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .language-toggle,
+    .language-toggle svg,
+    .language-menu,
+    .language-option {
+        transition: none;
+    }
+}
