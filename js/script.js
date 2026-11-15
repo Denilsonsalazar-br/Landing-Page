@@ -437,3 +437,120 @@ document.querySelectorAll(".sistec-copy").forEach(button => {
         }, 1800);
     });
 });
+
+// animação do mouse
+const section = document.querySelector("#inicio");
+
+if (section) {
+    section.addEventListener("mousemove", (event) => {
+        const rect = section.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        // Aqui você chama a função que cria o efeito do rastro
+        criarParticula(x, y);
+    });
+}
+
+/* EFEITO DE RASTRO DO MOUSE */
+
+(() => {
+    const section = document.querySelector("#inicio");
+
+    if (!section) return;
+
+    const canvas = section.querySelector(".mouse-trail");
+    const ctx = canvas.getContext("2d");
+
+    let points = [];
+    let animationFrame = null;
+
+    const lifetime = 550; // Duração do rastro em milissegundos
+
+    function resizeCanvas() {
+        const rect = section.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function addPoint(event) {
+        const rect = section.getBoundingClientRect();
+
+        points.push({
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top,
+            time: performance.now()
+        });
+
+        if (!animationFrame) {
+            animationFrame = requestAnimationFrame(drawTrail);
+        }
+    }
+
+    function drawTrail() {
+        const now = performance.now();
+        const rect = section.getBoundingClientRect();
+
+        ctx.clearRect(0, 0, rect.width, rect.height);
+
+        // Remove os pontos antigos
+        points = points.filter(point => now - point.time < lifetime);
+
+        if (points.length > 1) {
+            const color = getComputedStyle(section)
+                .getPropertyValue("--mouse-trail-color")
+                .trim();
+
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+
+            for (let i = 1; i < points.length; i++) {
+                const previous = points[i - 1];
+                const current = points[i];
+
+                const age = now - current.time;
+                const opacity = Math.max(0, 1 - age / lifetime);
+
+                ctx.beginPath();
+                ctx.moveTo(previous.x, previous.y);
+                ctx.lineTo(current.x, current.y);
+
+                ctx.strokeStyle = color;
+                ctx.globalAlpha = opacity;
+                ctx.lineWidth = 4 * opacity + 0.5;
+
+                // Brilho suave
+                ctx.shadowColor = color;
+                ctx.shadowBlur = 12 * opacity;
+
+                ctx.stroke();
+            }
+        }
+
+        ctx.globalAlpha = 1;
+        ctx.shadowBlur = 0;
+
+        if (points.length > 0) {
+            animationFrame = requestAnimationFrame(drawTrail);
+        } else {
+            animationFrame = null;
+            ctx.clearRect(0, 0, rect.width, rect.height);
+        }
+    }
+
+    section.addEventListener("pointermove", addPoint);
+
+    section.addEventListener("pointerleave", () => {
+        // O rastro desaparece naturalmente
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    resizeCanvas();
+})();
+// fim do script.js

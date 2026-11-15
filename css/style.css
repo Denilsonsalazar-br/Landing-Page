@@ -12,9 +12,9 @@
 
 
 /* ========================================
-   TOKENS DE TEMA
-   Cada variável guarda o valor do tema escuro (padrão) aqui
-   e o valor do tema claro no bloco logo abaixo.
+    TOKENS DE TEMA
+    Cada variável guarda o valor do tema escuro (padrão) aqui
+    e o valor do tema claro no bloco logo abaixo.
 ======================================== */
 
 :root {
@@ -245,7 +245,51 @@ html[data-theme="light"] {
         color: var(--body-color);
         min-height: 100vh;
 }
+    /* Animção do mouse */
 
+    #inicio {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #inicio canvas {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    /* Aproveita a estrutura já existente da seção */
+    #inicio {
+        --mouse-trail-color: #4AD6FD;
+    }
+
+    /* Cor do efeito no tema claro */
+    html[data-theme="light"] #inicio {
+        --mouse-trail-color: #0554F2;
+    }
+
+    /* Camada visual do rastro */
+    #inicio .mouse-trail {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Mantém o conteúdo principal acima do efeito */
+    #inicio .hero-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Mantém a linha inferior acima do efeito */
+    #inicio .hero-bottom-line {
+        z-index: 1;
+    }
+
+    
     /* NAVBAR */
 
     .navbar {
