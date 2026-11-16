@@ -539,12 +539,11 @@ document.querySelectorAll(".sistec-copy").forEach(button => {
 })();
 
 
-/* ========================================
-   METAS — PROGRESSO ANIMADO
-======================================== */
+/* METAS — PROGRESSO ANIMADO */
 
 (() => {
-    const cards = document.querySelectorAll(".goal-card");
+    // Só os cards com anel (os de assuntos não têm data-progress)
+    const cards = document.querySelectorAll(".goal-card[data-progress]");
 
     if (!cards.length) return;
 
@@ -554,96 +553,94 @@ document.querySelectorAll(".sistec-copy").forEach(button => {
 
     const circumference = 2 * Math.PI * 42;
 
-    function updateGoal(card, animate = true) {
-        const progress = Math.min(
-            100,
-            Math.max(0, Number(card.dataset.progress) || 0)
-        );
-
+    function getParts(card) {
         const ring = card.querySelector(".goal-ring-value");
         const percentage = card.querySelector("[data-progress-value]");
-        const progressBar = card.querySelector('[role="progressbar"]');
-        const milestones = card.querySelectorAll(".goal-milestone");
 
-        if (!ring || !percentage) return;
+        if (!ring || !percentage) return null;
 
-        ring.style.strokeDasharray = circumference;
-        ring.style.strokeDashoffset = circumference;
+        return {
+            ring,
+            percentage,
+            bar: card.querySelector('[role="progressbar"]'),
+            milestones: card.querySelectorAll(".goal-milestone"),
+            progress: Math.min(
+                100,
+                Math.max(0, Number(card.dataset.progress) || 0)
+            )
+        };
+    }
 
-        if (progressBar) {
-            progressBar.setAttribute("aria-valuenow", progress);
-        }
+    // Desenha um valor (0 a 100) no anel, no número e nos marcos
+    function render(parts, value) {
+        parts.ring.style.strokeDashoffset =
+            circumference * (1 - value / 100);
 
-        milestones.forEach((milestone, index) => {
-            const value = (index + 1) * 25;
+        parts.percentage.textContent = `${Math.round(value)}%`;
+
+        parts.milestones.forEach((milestone, index) => {
             milestone.classList.toggle(
                 "is-reached",
-                progress >= value
+                value >= (index + 1) * 25
             );
         });
+    }
 
-        const finish = () => {
-            ring.style.strokeDashoffset =
-                circumference * (1 - progress / 100);
-
-            percentage.textContent = `${progress}%`;
-        };
-
-        if (!animate || reducedMotion) {
-            finish();
-            return;
-        }
-
+    function animate(parts) {
         const duration = 1400;
         const start = performance.now();
 
-        function animateProgress(now) {
+        function frame(now) {
             const elapsed = Math.min((now - start) / duration, 1);
-
-            // Easing suave: ease-out cúbico
             const eased = 1 - Math.pow(1 - elapsed, 3);
 
-            const current = progress * eased;
-
-            ring.style.strokeDashoffset =
-                circumference * (1 - current / 100);
-
-            percentage.textContent =
-                `${Math.round(current)}%`;
+            render(parts, parts.progress * eased);
 
             if (elapsed < 1) {
-                requestAnimationFrame(animateProgress);
+                requestAnimationFrame(frame);
             } else {
-                finish();
+                render(parts, parts.progress);
             }
         }
 
-        requestAnimationFrame(animateProgress);
+        requestAnimationFrame(frame);
     }
 
-    function initializeGoals() {
-        cards.forEach(card => updateGoal(card, false));
+    const pending = new Map();
 
-        if (reducedMotion || !("IntersectionObserver" in window)) {
-            return;
+    cards.forEach(card => {
+        const parts = getParts(card);
+        if (!parts) return;
+
+        // A animação é feita aqui, quadro a quadro; a transição do CSS
+        // atrasaria o anel em relação ao número.
+        parts.ring.style.transition = "none";
+        parts.ring.style.strokeDasharray = circumference;
+
+        if (parts.bar) {
+            parts.bar.setAttribute("aria-valuenow", parts.progress);
         }
 
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
+        if (reducedMotion || !("IntersectionObserver" in window)) {
+            render(parts, parts.progress);
+        } else {
+            render(parts, 0);
+            pending.set(card, parts);
+        }
+    });
 
-                updateGoal(entry.target, true);
-                obs.unobserve(entry.target);
-            });
-        }, {
-            threshold: 0.25
+    if (!pending.size) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            animate(pending.get(entry.target));
+            obs.unobserve(entry.target);
         });
+    }, { threshold: 0.25 });
 
-        cards.forEach(card => observer.observe(card));
-    }
-
-    initializeGoals();
-
+    pending.forEach((parts, card) => observer.observe(card));
 })();
 
 // fim do script.js
