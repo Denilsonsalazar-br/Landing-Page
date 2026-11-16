@@ -35,12 +35,11 @@
     <script src="js/i18n.js" defer></script>
 
     <!-- Favicon --> 
-
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-light.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-light-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-light-16x16.png">
     <link rel="manifest" href="img/favicon/site-light.webmanifest">
-    <link rel="shortcut icon" href"img/" type="image/x-icon">
 
 </head>
 <body>
@@ -75,6 +74,9 @@
                 <li>
                     <a href="#certificacao">Certificações</a>
                 </li>
+                <li>
+                    <a href="#metas">Metas</a>
+                </li>
                 <li class="nav-cta-item">
                     <a
                         href="https://www.linkedin.com/in/denilsonsalazar"
@@ -87,97 +89,98 @@
                 </li>
             </ul>
 
+            <!-- CONTROLES DO NAVBAR -->
+            <div class="nav-controls">
+                <!-- SELETOR DE IDIOMA -->
+                <div class="language-picker" id="languagePicker">
+                    <button
+                        class="language-toggle"
+                        id="languageToggle"
+                        type="button"
+                        aria-label="Selecionar idioma"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        title="Selecionar idioma"
+                    >
+                        <span class="language-current" id="languageCurrent">PT</span>
+                        <svg viewBox="0 0 12 12" aria-hidden="true">
+                            <path d="m2 4 4 4 4-4" />
+                        </svg>
+                    </button>
 
-            <!-- SELETOR DE IDIOMA -->
-            <div class="language-picker" id="languagePicker">
-                <button
-                    class="language-toggle"
-                    id="languageToggle"
-                    type="button"
-                    aria-label="Selecionar idioma"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    title="Selecionar idioma"
-                >
-                    <span class="language-current" id="languageCurrent">PT</span>
-                    <svg viewBox="0 0 12 12" aria-hidden="true">
-                        <path d="m2 4 4 4 4-4" />
-                    </svg>
-                </button>
-
-                <div class="language-menu" id="languageMenu" role="menu" aria-label="Idioma">
-                    <button type="button" class="language-option active" data-lang="pt-BR" role="menuitem">
-                        <span>🇧🇷</span> Português
-                    </button>
-                    <button type="button" class="language-option" data-lang="en" role="menuitem">
-                        <span>🇺🇸</span> English
-                    </button>
-                    <button type="button" class="language-option" data-lang="es" role="menuitem">
-                        <span>🇪🇸</span> Español
-                    </button>
-                    <button type="button" class="language-option" data-lang="fr" role="menuitem">
-                        <span>🇫🇷</span> Francês
-                    </button>
+                    <div class="language-menu" id="languageMenu" role="menu" aria-label="Idioma">
+                        <button type="button" class="language-option active" data-lang="pt-BR" role="menuitem">
+                            <span>🇧🇷</span> Português
+                        </button>
+                        <button type="button" class="language-option" data-lang="en" role="menuitem">
+                            <span>🇺🇸</span> English
+                        </button>
+                        <button type="button" class="language-option" data-lang="es" role="menuitem">
+                            <span>🇪🇸</span> Español
+                        </button>
+                        <button type="button" class="language-option" data-lang="fr" role="menuitem">
+                            <span>🇫🇷</span> Francês
+                        </button>
+                    </div>
                 </div>
+
+                <!-- ALTERNAR TEMA -->
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Ativar tema claro"
+                    aria-pressed="false"
+                    title="Alternar tema"
+                >
+
+                    <!-- ÍCONE SOL -->
+
+                    <svg
+                        class="theme-icon theme-icon-sun"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <circle cx="12" cy="12" r="4"/>
+
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.42 1.42"/>
+                        <path d="m17.65 17.65 1.42 1.42"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m4.93 19.07 1.42-1.42"/>
+                        <path d="m17.65 6.35 1.42-1.42"/>
+
+                    </svg>
+
+
+                    <!-- ÍCONE LUA -->
+
+                    <svg
+                        class="theme-icon theme-icon-moon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10z"/>
+
+                    </svg>
+
+                </button>
             </div>
-
-            <!-- ALTERNAR TEMA -->
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                type="button"
-                aria-label="Ativar tema claro"
-                aria-pressed="false"
-                title="Alternar tema"
-            >
-
-                <!-- ÍCONE SOL -->
-
-                <svg
-                    class="theme-icon theme-icon-sun"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                >
-                    <circle cx="12" cy="12" r="4"/>
-
-                    <path d="M12 2v2"/>
-                    <path d="M12 20v2"/>
-                    <path d="m4.93 4.93 1.42 1.42"/>
-                    <path d="m17.65 17.65 1.42 1.42"/>
-                    <path d="M2 12h2"/>
-                    <path d="M20 12h2"/>
-                    <path d="m4.93 19.07 1.42-1.42"/>
-                    <path d="m17.65 6.35 1.42-1.42"/>
-
-                </svg>
-
-
-                <!-- ÍCONE LUA -->
-
-                <svg
-                    class="theme-icon theme-icon-moon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                >
-                    <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10z"/>
-
-                </svg>
-
-            </button>
-
 
             <!-- CONTATO -->
 
@@ -215,7 +218,7 @@
 
     </header>
     
-        <main>
+    <main>
 
         <!-- INÍCIO -->
         <section  class="hero-section hero" id="inicio">
@@ -1910,7 +1913,362 @@
             </div>
         </section>
 
-        </main>
+        <!-- METAS -->
+        <section id="metas" class="goals-section">
+
+            <div class="container">
+
+                <!-- Cabeçalho -->
+                <div class="goals-header">
+
+                    <span class="section-label" data-i18n="goals.label">
+                        PLANEJAMENTO &amp; EVOLUÇÃO
+                    </span>
+
+                    <h2 data-i18n="goals.title">
+                        Minhas <span>Metas</span>
+                    </h2>
+
+                    <p data-i18n="goals.description">
+                        Objetivos que representam minha evolução acadêmica,
+                        profissional e técnica.
+                    </p>
+
+                </div>
+
+                <!-- Grade de metas -->
+                <div class="goals-grid">
+
+                    <!-- META 01 -->
+                    <article class="goal-card" data-progress="25">
+
+                        <div class="goal-card-header">
+                            <span class="goal-number">01</span>
+
+                            <span class="goal-status goal-status-active"
+                                data-i18n="goals.status.progress">
+                                Em andamento
+                            </span>
+                        </div>
+
+                        <div class="goal-progress">
+
+                            <div class="goal-ring"
+                                role="progressbar"
+                                aria-label="Progresso: Bacharelado em Engenharia de Software"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="25">
+
+                                <svg viewBox="0 0 100 100" aria-hidden="true">
+
+                                    <circle class="goal-ring-track"
+                                            cx="50" cy="50" r="42"/>
+
+                                    <circle class="goal-ring-value"
+                                            cx="50" cy="50" r="42"
+                                            data-ring-progress="25"/>
+
+                                </svg>
+
+                                <span class="goal-percentage"
+                                    data-progress-value="25">25%</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="goal-content">
+
+                            <span class="goal-category"
+                                data-i18n="goals.category.academic">
+                                FORMAÇÃO ACADÊMICA
+                            </span>
+
+                            <h3 data-i18n="goals.goal1">
+                                Concluir o Bacharelado em Engenharia de Software
+                            </h3>
+
+                            <p data-i18n="goals.description1">
+                                Consolidar minha formação acadêmica e aprofundar
+                                meus conhecimentos em desenvolvimento de software.
+                            </p>
+
+                        </div>
+
+                        <div class="goal-milestones" aria-label="Marcos de progresso">
+
+                            <span class="goal-milestone is-reached"
+                                aria-label="Marco de 25% atingido">25%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 50%">50%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 75%">75%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 100%">100%</span>
+
+                        </div>
+
+                        <div class="goal-card-footer">
+                            <span data-i18n="goals.deadline">Prazo</span>
+                            <strong>2029</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- META 02 -->
+                    <article class="goal-card" data-progress="40">
+
+                        <div class="goal-card-header">
+                            <span class="goal-number">02</span>
+
+                            <span class="goal-status goal-status-active"
+                                data-i18n="goals.status.progress">
+                                Em andamento
+                            </span>
+                        </div>
+
+                        <div class="goal-progress">
+
+                            <div class="goal-ring"
+                                role="progressbar"
+                                aria-label="Progresso: Certificações"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="15">
+
+                                <svg viewBox="0 0 100 100" aria-hidden="true">
+
+                                    <circle class="goal-ring-track"
+                                            cx="50" cy="50" r="42"/>
+
+                                    <circle class="goal-ring-value"
+                                            cx="50" cy="50" r="42"
+                                            data-ring-progress="15"/>
+
+                                </svg>
+
+                                <span class="goal-percentage"
+                                    data-progress-value="15">40%</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="goal-content">
+
+                            <span class="goal-category"
+                                data-i18n="goals.category.certifications">
+                                CERTIFICAÇÕES
+                            </span>
+
+                            <h3 data-i18n="goals.goal2">
+                                Ampliar minhas certificações
+                            </h3>
+
+                            <p data-i18n="goals.description2">
+                                Expandir meus conhecimentos em redes, computação
+                                em nuvem e segurança da informação.
+                            </p>
+
+                        </div>
+
+                        <div class="goal-milestones" aria-label="Marcos de progresso">
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 25%">25%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 50%">50%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 75%">75%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 100%">100%</span>
+
+                        </div>
+
+                        <div class="goal-card-footer">
+                            <span data-i18n="goals.deadline">Prazo</span>
+                            <strong>2027</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- META 03 -->
+                    <article class="goal-card" data-progress="25">
+
+                        <div class="goal-card-header">
+                            <span class="goal-number">03</span>
+
+                            <span class="goal-status goal-status-active"
+                                data-i18n="goals.status.progress">
+                                Em andamento
+                            </span>
+                        </div>
+
+                        <div class="goal-progress">
+
+                            <div class="goal-ring"
+                                role="progressbar"
+                                aria-label="Progresso: Projetos no GitHub"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="15">
+
+                                <svg viewBox="0 0 100 100" aria-hidden="true">
+
+                                    <circle class="goal-ring-track"
+                                            cx="50" cy="50" r="42"/>
+
+                                    <circle class="goal-ring-value"
+                                            cx="50" cy="50" r="42"
+                                            data-ring-progress="15"/>
+
+                                </svg>
+
+                                <span class="goal-percentage"
+                                    data-progress-value="15">25%</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="goal-content">
+
+                            <span class="goal-category"
+                                data-i18n="goals.category.projects">
+                                DESENVOLVIMENTO
+                            </span>
+
+                            <h3 data-i18n="goals.goal3">
+                                Publicar 5 projetos completos no GitHub
+                            </h3>
+
+                            <p data-i18n="goals.description3">
+                                Desenvolver projetos práticos, documentados
+                                e organizados para fortalecer meu portfólio.
+                            </p>
+
+                        </div>
+
+                        <div class="goal-milestones" aria-label="Marcos de progresso">
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 25%">25%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 50%">50%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 75%">75%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 100%">100%</span>
+
+                        </div>
+
+                        <div class="goal-card-footer">
+                            <span data-i18n="goals.deadline">Prazo</span>
+                            <strong>2027</strong>
+                        </div>
+
+                    </article>
+
+
+                    <!-- META 04 -->
+                    <article class="goal-card" data-progress="30">
+
+                        <div class="goal-card-header">
+                            <span class="goal-number">04</span>
+
+                            <span class="goal-status goal-status-planned"
+                                data-i18n="goals.status.planned">
+                                Planejada
+                            </span>
+                        </div>
+
+                        <div class="goal-progress">
+
+                            <div class="goal-ring"
+                                role="progressbar"
+                                aria-label="Progresso: Primeira oportunidade profissional"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="15">
+
+                                <svg viewBox="0 0 100 100" aria-hidden="true">
+
+                                    <circle class="goal-ring-track"
+                                            cx="50" cy="50" r="42"/>
+
+                                    <circle class="goal-ring-value"
+                                            cx="50" cy="50" r="42"
+                                            data-ring-progress="15"/>
+
+                                </svg>
+
+                                <span class="goal-percentage"
+                                    data-progress-value="15">15%</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="goal-content">
+
+                            <span class="goal-category"
+                                data-i18n="goals.category.career">
+                                CARREIRA PROFISSIONAL
+                            </span>
+
+                            <h3 data-i18n="goals.goal4">
+                                Conquistar minha primeira vaga ou estágio na área de TI
+                            </h3>
+
+                            <p data-i18n="goals.description4">
+                                Ingressar no mercado de tecnologia e aplicar
+                                na prática os conhecimentos adquiridos.
+                            </p>
+
+                        </div>
+
+                        <div class="goal-milestones" aria-label="Marcos de progresso">
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 25%">25%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 50%">50%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 75%">75%</span>
+
+                            <span class="goal-milestone"
+                                aria-label="Marco de 100%">100%</span>
+
+                        </div>
+
+                        <div class="goal-card-footer">
+                            <span data-i18n="goals.deadline">Prazo</span>
+                            <strong>2027</strong>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer class="site-footer" id="contato">
@@ -1975,6 +2333,9 @@
 
                         <li>
                             <a href="#certificacao">Certificações</a>
+                        </li>
+                        <li>
+                            <a href="#metas">Metas</a>
                         </li>
                     </ul>
                 </div>
