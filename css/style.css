@@ -289,6 +289,30 @@ html[data-theme="light"] {
         z-index: 1;
     }
 
+    /* AGRUPAMENTO DOS CONTROLES DO NAVBAR */
+
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        flex-shrink: 0;
+    }
+
+    /* SELETOR DE IDIOMA */
+
+    .language-picker {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    /* BOTÃO DE TEMA */
+
+    .theme-toggle {
+        flex-shrink: 0;
+    }
     
     /* NAVBAR */
 
@@ -4951,5 +4975,674 @@ html[data-theme="light"] .language-option.active {
     .language-menu,
     .language-option {
         transition: none;
+    }
+}
+
+
+/* ========================================
+   PREMIUM EFFECTS — TOKENS DE TEMA
+======================================== */
+
+:root {
+    /* Superfície */
+    --premium-section-background: var(--body-background);
+    --premium-card-background: rgba(5, 84, 242, 0.08);
+    --premium-card-border: rgba(74, 214, 253, 0.16);
+    --premium-card-hover-background: rgba(5, 84, 242, 0.14);
+
+    /* Tipografia */
+    --premium-title-color: var(--text);
+    --premium-title-accent: var(--accent);
+    --premium-description-color: var(--muted);
+    --premium-label-color: var(--accent);
+
+    /* Elementos */
+    --premium-primary: var(--secondary);
+    --premium-accent: var(--accent);
+    --premium-track: rgba(74, 214, 253, 0.12);
+    --premium-progress: var(--accent);
+
+    /* Efeitos */
+    --premium-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+    --premium-glow: 0 0 24px rgba(74, 214, 253, 0.20);
+    --premium-overlay: rgba(1, 22, 64, 0.65);
+
+    /* Transições */
+    --premium-transition: var(--transition);
+}
+
+html[data-theme="light"] {
+    --premium-section-background: var(--body-background);
+    --premium-card-background: rgba(255, 255, 255, 0.85);
+    --premium-card-border: rgba(5, 84, 242, 0.14);
+    --premium-card-hover-background: rgba(5, 84, 242, 0.06);
+
+    --premium-title-color: var(--body-color);
+    --premium-title-accent: var(--secondary);
+    --premium-description-color: var(--muted);
+    --premium-label-color: var(--secondary);
+
+    --premium-primary: var(--secondary);
+    --premium-accent: var(--secondary);
+    --premium-track: rgba(5, 84, 242, 0.12);
+    --premium-progress: var(--secondary);
+
+    --premium-shadow: 0 20px 50px rgba(15, 40, 80, 0.08);
+    --premium-glow: 0 0 24px rgba(5, 84, 242, 0.12);
+    --premium-overlay: rgba(244, 247, 252, 0.75);
+}
+
+
+/* ========================================
+    METAS — ESTRUTURA PRINCIPAL
+======================================== */
+
+.goals-section {
+    padding: 110px 0;
+    background: var(--premium-section-background);
+    scroll-margin-top: 88px;
+    overflow: hidden;
+}
+
+.goals-section .container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.goals-header {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.goals-header .section-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--premium-label-color);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.goals-header h2 {
+    color: var(--premium-title-color);
+    font-size: clamp(30px, 4vw, 44px);
+    margin-bottom: 16px;
+}
+
+.goals-header h2 span {
+    color: var(--premium-title-accent);
+}
+
+.goals-header p {
+    color: var(--premium-description-color);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Grade */
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Cards */
+
+.goal-card {
+    position: relative;
+    min-width: 0;
+    padding: 28px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--premium-card-background);
+    border: 1px solid var(--premium-card-border);
+    border-radius: 20px;
+
+    box-shadow: var(--premium-shadow);
+
+    transition:
+        transform 0.45s cubic-bezier(.2, .8, .2, 1),
+        background var(--premium-transition),
+        border-color var(--premium-transition),
+        box-shadow var(--premium-transition);
+}
+
+.goal-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -80px;
+    border-radius: 50%;
+    background: var(--premium-accent);
+    opacity: 0.06;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.goal-card:hover {
+    transform: translateY(-4px);
+    background: var(--premium-card-hover-background);
+    border-color: var(--premium-accent);
+    box-shadow: var(--premium-shadow), var(--premium-glow);
+}
+
+/* Cabeçalho do card */
+
+.goal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.goal-number {
+    color: var(--premium-description-color);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.goal-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.goal-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.goal-status-active {
+    color: var(--premium-accent);
+    background: var(--premium-card-hover-background);
+}
+
+.goal-status-planned {
+    color: var(--premium-description-color);
+    background: var(--premium-card-background);
+}
+
+/* Anel de progresso */
+
+.goal-progress {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0 24px;
+}
+
+.goal-ring {
+    position: relative;
+    width: 116px;
+    height: 116px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 0 transparent);
+    transition: filter 0.4s ease;
+}
+
+.goal-card:hover .goal-ring {
+    filter: drop-shadow(0 0 10px var(--premium-accent));
+}
+
+.goal-ring svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.goal-ring-track,
+.goal-ring-value {
+    fill: none;
+    stroke-width: 7;
+}
+
+.goal-ring-track {
+    stroke: var(--premium-track);
+}
+
+.goal-ring-value {
+    stroke: var(--premium-progress);
+    stroke-linecap: round;
+    stroke-dasharray: 263.89;
+    stroke-dashoffset: 263.89;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+
+    transition:
+        stroke-dashoffset 1.5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.goal-percentage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--premium-title-color);
+    font-size: 25px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Conteúdo */
+
+.goal-content {
+    flex: 1;
+}
+
+.goal-category {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--premium-label-color);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.goal-content h3 {
+    margin-bottom: 12px;
+    color: var(--premium-title-color);
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+.goal-content p {
+    color: var(--premium-description-color);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Marcos */
+
+.goal-milestones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 26px;
+}
+
+.goal-milestone {
+    position: relative;
+    padding: 9px 4px;
+    text-align: center;
+
+    color: var(--premium-description-color);
+    background: var(--premium-card-background);
+    border: 1px solid var(--premium-card-border);
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        background var(--premium-transition),
+        color var(--premium-transition),
+        border-color var(--premium-transition);
+}
+
+.goal-milestone.is-reached {
+    color: var(--premium-primary);
+    background: var(--premium-accent);
+    border-color: var(--premium-accent);
+}
+
+/* Rodapé */
+
+.goal-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--premium-card-border);
+}
+
+.goal-card-footer span {
+    color: var(--premium-description-color);
+    font-size: 12px;
+}
+
+.goal-card-footer strong {
+    color: var(--premium-title-color);
+    font-size: 14px;
+}
+
+/* Confetes */
+
+.goal-confetti {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 768px) {
+    .goals-section {
+        padding: 85px 0;
+    }
+
+    .goals-grid {
+        gap: 18px;
+    }
+
+    .goal-card {
+        padding: 22px;
+    }
+
+    .goal-content h3 {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .goals-section {
+        padding: 70px 0;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .goals-header {
+        margin-bottom: 35px;
+    }
+
+    .goal-card {
+        padding: 22px;
+    }
+
+    .goal-ring {
+        width: 108px;
+        height: 108px;
+    }
+
+    .goal-content h3 {
+        font-size: 18px;
+    }
+}
+
+/* ========================================
+    ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .goal-card,
+    .goal-ring,
+    .goal-ring-value,
+    .goal-milestone {
+        transition: none !important;
+    }
+
+    .goal-card:hover {
+        transform: none;
+    }
+}
+
+:root {
+    --premium-description-color: #A8B8D5;
+    --premium-milestone-text: #011640;
+}
+
+html[data-theme="light"] {
+    --premium-description-color: #52627C;
+    --premium-milestone-text: #FFFFFF;
+}
+
+.goal-milestone.is-reached {
+    color: var(--premium-milestone-text);
+}
+
+
+/* ========================================
+   METAS — FUNDOS DOS TEMAS
+======================================== */
+
+:root {
+    --goals-section-background:
+        radial-gradient(
+            ellipse at 12% 15%,
+            rgba(5, 84, 242, 0.13),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(74, 214, 253, 0.055),
+            transparent 35%
+        ),
+        #011640;
+
+    --goals-card-background: linear-gradient(
+        145deg,
+        rgba(5, 84, 242, 0.10),
+        rgba(1, 22, 64, 0.75)
+    );
+
+    --goals-card-border: rgba(74, 214, 253, 0.13);
+    --goals-card-hover: rgba(5, 84, 242, 0.16);
+    --goals-decoration: rgba(74, 214, 253, 0.07);
+}
+
+html[data-theme="light"] {
+    --goals-section-background:
+        radial-gradient(
+            ellipse at 12% 15%,
+            rgba(5, 84, 242, 0.07),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(5, 84, 242, 0.045),
+            transparent 35%
+        ),
+        #F4F7FC;
+
+    --goals-card-background: linear-gradient(
+        145deg,
+        #FFFFFF,
+        #EEF4FC
+    );
+
+    --goals-card-border: rgba(5, 84, 242, 0.12);
+    --goals-card-hover: rgba(5, 84, 242, 0.06);
+    --goals-decoration: rgba(5, 84, 242, 0.06);
+}
+
+/* ========================================
+   METAS — REFINAMENTO VISUAL
+======================================== */
+
+.goals-section {
+    position: relative;
+    isolation: isolate;
+    padding: 80px 0;
+    background: var(--goals-section-background);
+    scroll-margin-top: 88px;
+}
+
+/* Iluminação decorativa */
+
+.goals-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        ellipse at center,
+        var(--goals-decoration),
+        transparent 65%
+    );
+    pointer-events: none;
+}
+
+/* Cabeçalho mais compacto */
+
+.goals-header {
+    max-width: 620px;
+    margin: 0 auto 38px;
+}
+
+.goals-header .section-label {
+    margin-bottom: 12px;
+}
+
+.goals-header h2 {
+    margin-bottom: 10px;
+}
+
+.goals-header p {
+    line-height: 1.65;
+}
+
+/* Grade */
+
+.goals-grid {
+    gap: 18px;
+}
+
+/* Cards compactos */
+
+.goal-card {
+    padding: 23px;
+    border: 1px solid var(--goals-card-border);
+    background: var(--goals-card-background);
+    border-radius: 16px;
+    box-shadow: var(--premium-shadow);
+}
+
+.goal-card::before {
+    width: 150px;
+    height: 150px;
+    top: -85px;
+    right: -65px;
+    background: var(--premium-accent);
+    opacity: 0.07;
+}
+
+.goal-card:hover {
+    background: var(--goals-card-hover);
+    border-color: var(--premium-accent);
+}
+
+/* Cabeçalho do card */
+
+.goal-card-header {
+    margin-bottom: 10px;
+}
+
+/* Anel menor e mais próximo do conteúdo */
+
+.goal-progress {
+    margin: 2px 0 17px;
+}
+
+.goal-ring {
+    width: 94px;
+    height: 94px;
+}
+
+.goal-percentage {
+    font-size: 22px;
+}
+
+/* Conteúdo */
+
+.goal-category {
+    margin-bottom: 8px;
+}
+
+.goal-content h3 {
+    margin-bottom: 9px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.goal-content p {
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* Marcos */
+
+.goal-milestones {
+    margin-top: 19px;
+    gap: 7px;
+}
+
+.goal-milestone {
+    padding: 8px 4px;
+    font-size: 11px;
+    border-radius: 7px;
+}
+
+/* Rodapé */
+
+.goal-card-footer {
+    margin-top: 17px;
+    padding-top: 13px;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .goals-section {
+        padding: 65px 0;
+    }
+
+    .goals-header {
+        margin-bottom: 30px;
+    }
+
+    .goal-card {
+        padding: 19px;
+    }
+
+    .goal-ring {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+@media (max-width: 480px) {
+    .goals-section {
+        padding: 55px 0;
+    }
+
+    .goals-grid {
+        gap: 15px;
+    }
+
+    .goal-card {
+        padding: 20px;
+    }
+
+    .goal-progress {
+        margin: 0 0 15px;
     }
 }
