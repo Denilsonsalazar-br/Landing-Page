@@ -5650,13 +5650,8 @@ html[data-theme="light"] {
     }
 }
 
-/* ========================================
-   METAS — ACRÉSCIMOS
-   Cole no FINAL do seu style.css (depois dos blocos de METAS).
-   Usa só variáveis que o seu CSS já define.
-======================================== */
+/* METAS */
 
-/* Cards de assuntos (sem anel): chips no lugar dos marcos */
 
 .goal-topics {
     margin-top: 19px;
