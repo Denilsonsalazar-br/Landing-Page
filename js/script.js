@@ -537,4 +537,113 @@ document.querySelectorAll(".sistec-copy").forEach(button => {
 
     resizeCanvas();
 })();
+
+
+/* ========================================
+   METAS — PROGRESSO ANIMADO
+======================================== */
+
+(() => {
+    const cards = document.querySelectorAll(".goal-card");
+
+    if (!cards.length) return;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const circumference = 2 * Math.PI * 42;
+
+    function updateGoal(card, animate = true) {
+        const progress = Math.min(
+            100,
+            Math.max(0, Number(card.dataset.progress) || 0)
+        );
+
+        const ring = card.querySelector(".goal-ring-value");
+        const percentage = card.querySelector("[data-progress-value]");
+        const progressBar = card.querySelector('[role="progressbar"]');
+        const milestones = card.querySelectorAll(".goal-milestone");
+
+        if (!ring || !percentage) return;
+
+        ring.style.strokeDasharray = circumference;
+        ring.style.strokeDashoffset = circumference;
+
+        if (progressBar) {
+            progressBar.setAttribute("aria-valuenow", progress);
+        }
+
+        milestones.forEach((milestone, index) => {
+            const value = (index + 1) * 25;
+            milestone.classList.toggle(
+                "is-reached",
+                progress >= value
+            );
+        });
+
+        const finish = () => {
+            ring.style.strokeDashoffset =
+                circumference * (1 - progress / 100);
+
+            percentage.textContent = `${progress}%`;
+        };
+
+        if (!animate || reducedMotion) {
+            finish();
+            return;
+        }
+
+        const duration = 1400;
+        const start = performance.now();
+
+        function animateProgress(now) {
+            const elapsed = Math.min((now - start) / duration, 1);
+
+            // Easing suave: ease-out cúbico
+            const eased = 1 - Math.pow(1 - elapsed, 3);
+
+            const current = progress * eased;
+
+            ring.style.strokeDashoffset =
+                circumference * (1 - current / 100);
+
+            percentage.textContent =
+                `${Math.round(current)}%`;
+
+            if (elapsed < 1) {
+                requestAnimationFrame(animateProgress);
+            } else {
+                finish();
+            }
+        }
+
+        requestAnimationFrame(animateProgress);
+    }
+
+    function initializeGoals() {
+        cards.forEach(card => updateGoal(card, false));
+
+        if (reducedMotion || !("IntersectionObserver" in window)) {
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                updateGoal(entry.target, true);
+                obs.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.25
+        });
+
+        cards.forEach(card => observer.observe(card));
+    }
+
+    initializeGoals();
+
+})();
+
 // fim do script.js
