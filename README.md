@@ -154,7 +154,7 @@ Atualmente, busco uma oportunidade de estágio ou trabalho na área de tecnologi
   <a href="https://github.com/Denilsonsalazar-br">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
-  <a href="https://www.linkedin.com/in/denilson-salazar-sales/">
+  <a href="https://www.linkedin.com/in/denilsonsalazar">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
   <a href="https://www.credly.com/users/denilson-salazar">
