@@ -44,18 +44,18 @@ Confira algumas das principais seções do meu portfólio profissional:
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="img/screenshots/projetos.png" alt="Seção de projetos" width="100%">
-      <br>
-      <strong>03. Projetos</strong>
-      <br>
-      <sub>Projetos pessoais e acadêmicos desenvolvidos.</sub>
-    </td>
+        <img src="img/screenshots/projetos.png" alt="Seção de projetos" width="100%">
+        <br>
+        <strong>03. Projetos</strong>
+        <br>
+        <sub>Projetos pessoais e acadêmicos desenvolvidos.</sub>
+        </td>
     <td align="center" width="50%">
-      <img src="img/screenshots/metas.png" alt="Seção de metas" width="100%">
-      <br>
-      <strong>04. Metas</strong>
-      <br>
-      <sub>Planejamento e objetivos de desenvolvimento profissional.</sub>
+        <img src="img/screenshots/metas.png" alt="Seção de metas" width="100%">
+        <br>
+        <strong>04. Metas</strong>
+        <br>
+        <sub>Planejamento e objetivos de desenvolvimento profissional.</sub>
     </td>
   </tr>
 </table>
