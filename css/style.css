@@ -987,12 +987,21 @@ html[data-theme="light"] {
     bottom: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 17px 20px;
+    z-index: 1;
     border-top: 1px solid rgba(74, 214, 253, 0.12);
     background: var(--hero-bottom-line-background);
+}
+
+.hero-bottom-inner {
+    /* copie aqui o mesmo width/max-width do seu .hero-container */
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 17px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .hero-bottom-line span {
@@ -5033,9 +5042,7 @@ html[data-theme="light"] {
 }
 
 
-/* ========================================
-    METAS — ESTRUTURA PRINCIPAL
-======================================== */
+/* METAS — ESTRUTURA PRINCIPAL*/
 
 .goals-section {
     padding: 110px 0;
@@ -5420,9 +5427,7 @@ html[data-theme="light"] {
 }
 
 
-/* ========================================
-   METAS — FUNDOS DOS TEMAS
-======================================== */
+/*METAS — FUNDOS DOS TEMAS*/
 
 :root {
     --goals-section-background:
@@ -5474,9 +5479,7 @@ html[data-theme="light"] {
     --goals-decoration: rgba(5, 84, 242, 0.06);
 }
 
-/* ========================================
-   METAS — REFINAMENTO VISUAL
-======================================== */
+/*METAS — REFINAMENTO VISUAL*/
 
 .goals-section {
     position: relative;
@@ -5645,4 +5648,59 @@ html[data-theme="light"] {
     .goal-progress {
         margin: 0 0 15px;
     }
+}
+
+/* ========================================
+   METAS — ACRÉSCIMOS
+   Cole no FINAL do seu style.css (depois dos blocos de METAS).
+   Usa só variáveis que o seu CSS já define.
+======================================== */
+
+/* Cards de assuntos (sem anel): chips no lugar dos marcos */
+
+.goal-topics {
+    margin-top: 19px;
+}
+
+.goal-topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.goal-topic-list li {
+    padding: 7px 12px;
+    border: 1px solid var(--goals-card-border);
+    border-radius: 999px;
+    color: var(--premium-description-color);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Link para o perfil onde a meta pode ser conferida */
+
+.goal-source {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--premium-accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.goal-source:hover {
+    border-bottom-color: currentColor;
+}
+
+.goal-source:focus-visible {
+    outline: 2px solid var(--premium-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
