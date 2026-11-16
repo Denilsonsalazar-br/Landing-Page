@@ -169,3 +169,9 @@ Atualmente, busco uma oportunidade de estágio ou trabalho na área de tecnologi
   <br>
   <em>Construindo conhecimento, desenvolvendo soluções e evoluindo profissionalmente.</em>
 </p>
+
+<img src="https://raw.githubusercontent.com/Denilsonsalazar-br/Landing-Page/main/img/screenshots/projetos.png"
+     alt="Seção de projetos" width="100%">
+
+<img src="https://raw.githubusercontent.com/Denilsonsalazar-br/Landing-Page/main/img/screenshots/metas.png"
+     alt="Seção de metas" width="100%">
