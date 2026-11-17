@@ -26,44 +26,49 @@ Mais do que uma apresentação pessoal, este portfólio representa meu compromis
 Confira algumas das principais seções do meu portfólio profissional:
 
 
-<table align="center">
-  <tr>
-    <td align="center" width="50%">
-      <img src="img/screenshots/inicio.png" alt="Página inicial do portfólio"
-           width="100%" height="240">
-      <br>
-      <strong>01. Página inicial</strong>
-      <br>
-      <sub>Apresentação pessoal e identidade profissional.</sub>
-    </td>
-    <td align="center" width="50%">
-      <img src="img/screenshots/certificacoes.png" alt="Seção de certificações"
-           width="100%" height="240">
-      <br>
-      <strong>02. Certificações</strong>
-      <br>
-      <sub>Formações complementares e conquistas profissionais.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="img/screenshots/projetos.PNG" alt="Seção de projetos"
-           width="100%" height="240">
-      <br>
-      <strong>03. Projetos</strong>
-      <br>
-      <sub>Projetos pessoais e acadêmicos desenvolvidos.</sub>
-    </td>
-    <td align="center" width="50%">
-      <img src="img/screenshots/metas.PNG" alt="Seção de metas"
-           width="100%" height="240">
-      <br>
-      <strong>04. Metas</strong>
-      <br>
-      <sub>Planejamento e objetivos de desenvolvimento profissional.</sub>
-    </td>
-  </tr>
-</table>
+## 🖥️ Prévia do Portfólio
+
+<div align="center">
+
+  <img src="img/screenshots/inicio.png"
+       alt="Página inicial do portfólio"
+       width="100%">
+  <br>
+  **01. Section inicial**
+  <br>
+  <sub>Apresentação pessoal e identidade profissional.</sub>
+
+  <br><br>
+
+  <img src="img/screenshots/certificacoes.png"
+       alt="Seção de certificações"
+       width="100%">
+  <br>
+  **02. Section Certificações**
+  <br>
+  <sub>Formações complementares e conquistas profissionais.</sub>
+
+  <br><br>
+
+  <img src="img/screenshots/projetos.PNG"
+       alt="Seção de projetos"
+       width="100%">
+  <br>
+  **03. Section Projetos**
+  <br>
+  <sub>Projetos pessoais e acadêmicos desenvolvidos.</sub>
+
+  <br><br>
+
+  <img src="img/screenshots/metas.PNG"
+       alt="Seção de metas"
+       width="100%">
+  <br>
+  **04. Section Metas**
+  <br>
+  <sub>Planejamento e objetivos de desenvolvimento profissional.</sub>
+
+</div>
 
 
 ## 🎯 Objetivos
